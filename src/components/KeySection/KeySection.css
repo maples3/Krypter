@@ -1,0 +1,15 @@
+.KeySection{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.rowHeader {
+    display: inline-block;
+    padding-right: 5px;
+}
+
+.rowHeader p {
+    font-weight: bold;
+    margin: 0;
+    text-align: right;
+}

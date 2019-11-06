@@ -1,0 +1,15 @@
+.KeyLetter {
+    display: inline-block;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.KeyLetter p {
+    font-weight: bold;
+    margin: 0;
+    text-align: center;
+}
+
+.KeyLetter input {
+    width: 1em;
+}
