@@ -3,14 +3,18 @@ import './App.css';
 import InputBox from '../InputBox/InputBox';
 import KeySection from '../KeySection/KeySection';
 import OutputBox from '../OutputBox/OutputBox';
+import { Provider } from 'react-redux';
+import { store } from '../../store/configureStore';
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <InputBox></InputBox>
-      <KeySection></KeySection>
-      <OutputBox></OutputBox>
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <InputBox />
+        <KeySection />
+        <OutputBox />
+      </div>
+    </Provider>
   );
 }
 

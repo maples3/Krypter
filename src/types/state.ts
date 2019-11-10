@@ -7,10 +7,11 @@ export interface IAppState {
 export interface IKeySection {
     keyword: string;
     keyletter: string;
-    keyLetters: IKeyLetter[];
+    // keyLetters: IKeyLetter[];
+    keyLetters: Map<string, string>;
 }
 
-export default interface IKeyLetter {
+export interface IKeyLetter {
     ctLetter: string; // The "static", non-changing letter of each KeyLetter component
     ptLetter: string;
 }
