@@ -1,5 +1,5 @@
 import { AppActions, UPDATE_KEYWORDSECTION } from "../types/actions";
-import { IAppState } from "../types/state";
+import { IAppState, IKeySection } from "../types/state";
 
 const defaultState: IAppState = {
     input: "",
@@ -47,13 +47,12 @@ function myReducer (state: IAppState = defaultState, action: AppActions): IAppSt
             // Validation - make sure they didn't type anything dumb (not a letter)
             // TODO: Add valid flags to the store and make the UI red when either of the fields are not valid
             if (isValidKeyword(action.keyword) && isValidKeyletter(action.keyLetter)) {
-                console.log(generateLetterMappings(action.keyword, action.keyLetter));
+                let keySection: IKeySection = {...state.keySection, keyLetters: generateLetterMappings(action.keyword, action.keyLetter)};
+                return { ...state, keySection }
             } else {
                 return state;
             }
-            break;
     }
-
     return state;
 }
 
@@ -89,7 +88,7 @@ function generateLetterMappings(keyword: string, keyletter: string) {
     const alphabet = "abcdefghijklmnopqrstuvwxyz";
 
     let ciphertextAlphabet = stripDuplicateLetters(keyword + alphabet); // removeDuplicates should handle this nicely
-    if (ciphertextAlphabet.length != 26)
+    if (ciphertextAlphabet.length !== 26)
     {
         console.error("Full alphabet was not 26 characters!!!\n" + ciphertextAlphabet);
         throw new Error(); // Todo - how are these handled?
