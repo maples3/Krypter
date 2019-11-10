@@ -47,7 +47,7 @@ function myReducer (state: IAppState = defaultState, action: AppActions): IAppSt
             // Validation - make sure they didn't type anything dumb (not a letter)
             // TODO: Add valid flags to the store and make the UI red when either of the fields are not valid
             if (isValidKeyword(action.keyword) && isValidKeyletter(action.keyLetter)) {
-                console.log(stripDuplicateLetters(action.keyword) + "  " + action.keyLetter);
+                console.log(generateLetterMappings(action.keyword, action.keyLetter));
             } else {
                 return state;
             }
@@ -61,7 +61,7 @@ function stripDuplicateLetters(input: string) {
     let output: string = "";
     for (var i=0; i<input.length; i++) {
         if (output.indexOf(input[i]) === -1) {
-            output += input[i];
+            output += input[i].toLowerCase();
         }
     }
     return output;
@@ -82,6 +82,31 @@ function isValidKeyword(input: string) {
 
 function isValidKeyletter(input: string) {
     return (input.length === 1) && isValidKeyword(input);
+}
+
+// This function assumes that the given keyword and keyletter have been properly sanitized
+function generateLetterMappings(keyword: string, keyletter: string) {
+    const alphabet = "abcdefghijklmnopqrstuvwxyz";
+
+    let ciphertextAlphabet = stripDuplicateLetters(keyword + alphabet); // removeDuplicates should handle this nicely
+    if (ciphertextAlphabet.length != 26)
+    {
+        console.error("Full alphabet was not 26 characters!!!\n" + ciphertextAlphabet);
+        throw new Error(); // Todo - how are these handled?
+    }
+
+    let startIndex = keyletter.toLowerCase().charCodeAt(0) - 97;
+    console.log(startIndex);
+    
+    let letterMap = new Map<string, string>();
+
+    for (var i=0; i<26; i++) {
+        letterMap.set(
+            alphabet[i],
+            ciphertextAlphabet[ (i + (26 - startIndex)) % 26]
+        )
+    }
+    return letterMap;
 }
 
 export default myReducer;
