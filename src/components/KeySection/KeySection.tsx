@@ -12,12 +12,12 @@ interface KeySectionState {
 
 class KeySection extends React.Component<KeySectionProps, KeySectionState> {
     render() {
-        console.log(this.props);
+        // console.log(this.props);
 
         let alphabet: JSX.Element[] = [];
-        this.props.keyLetters.forEach(
-            (inputValue: string, ptLetter: string, map: Map<string, string>) => { console.log(ptLetter); alphabet.push(<KeyLetter ptLetter={ptLetter} />) }
-        )
+        this.props.keyLetters.forEach( (inputValue: string, ptLetter: string, map: Map<string, string>) => {
+            alphabet.push(<KeyLetter key={ptLetter} ptLetter={ptLetter} ctLetter={inputValue} />)
+        })
 
         return <div className="KeySection">
             <KeyInput></KeyInput>

@@ -3,13 +3,14 @@ import './KeyLetter.css'
 
 interface KeyLetterProps {
     ptLetter: string;
+    ctLetter: string;
 };
 
 class KeyLetter extends React.Component<KeyLetterProps> {
     render() {
         return <div className='KeyLetter'>
             <p>{this.props.ptLetter}</p>
-            <input></input>
+            <input defaultValue={this.props.ctLetter}></input>
         </div>;
     }
 }

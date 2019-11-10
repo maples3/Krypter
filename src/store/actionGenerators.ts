@@ -1,4 +1,5 @@
 import { AppActions, UPDATE_KEYLETTER, UPDATE_KEYWORDSECTION } from "../types/actions";
+import { store } from "./configureStore";
 
 export const updateKeyLetter = (ctLetter: string, newPtLetter: string): AppActions => ({
     type: UPDATE_KEYLETTER,
@@ -8,8 +9,16 @@ export const updateKeyLetter = (ctLetter: string, newPtLetter: string): AppActio
     // form to help it make sense to me when I'm getting confused :)
 });
 
-export const UpdateKeywordSection = (keyword: string, keyLetter: string): AppActions => ({
-    type: UPDATE_KEYWORDSECTION,
-    keyword: keyword,
-    keyLetter: keyLetter
-});
+export function updateKeywordSection(keyword: string, keyLetter: string): AppActions {
+    // console.log("updateKeywordSection: " + keyword + " - " + keyLetter);
+    return {
+        type: UPDATE_KEYWORDSECTION,
+        keyword: keyword,
+        keyLetter: keyLetter
+    }
+}
+
+// Is this hacky?  It seems so simple, but nothing online even came close to suggesting it...
+export function myDispatcher(action: AppActions) {
+    store.dispatch(action);
+}
