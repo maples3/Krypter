@@ -1,4 +1,3 @@
-import { AppState } from "./configureStore";
 import { AppActions } from "../types/actions";
 import IKeyLetter, { IAppState } from "../types/state";
 
