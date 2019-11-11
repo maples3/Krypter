@@ -1,6 +1,7 @@
 
 export interface IAppState {
     input: string;
+    output: string;
     keySection: IKeySection;
 }
 
