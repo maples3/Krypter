@@ -1,6 +1,6 @@
 .KeyLetter {
     display: inline-block;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     padding: 5px;
 }
 
@@ -8,8 +8,4 @@
     font-weight: bold;
     margin: 0;
     text-align: center;
-}
-
-.KeyLetter input {
-    width: 1em;
 }

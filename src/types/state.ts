@@ -7,8 +7,9 @@ export interface IAppState {
 
 export interface IKeySection {
     keyword: string;
+    validKeyword: boolean;
     keyletter: string;
-    // keyLetters: IKeyLetter[];
+    validKeyletter: boolean;
     keyLetters: Map<string, string>;
 }
 

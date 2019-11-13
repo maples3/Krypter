@@ -13,3 +13,9 @@
     margin: 0;
     text-align: right;
 }
+
+.alphabetSection {
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+}

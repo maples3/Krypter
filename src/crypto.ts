@@ -21,14 +21,22 @@ export function generateLetterMappings(keyword: string, keyletter: string) {
     return letterMap;
 }
 
-export function encryptText(ctAlphabet: string, plaintext: string) {
+export function encryptText(plaintext: string, keyword: string, keyletter: string) {
+    return encryptTextFromCtAlphabet(plaintext, generateCiphertextAlphabet(keyword, keyletter));
+}
+
+function encryptTextFromCtAlphabet(plaintext: string, ctAlphabet: string) {
     // Remember: {ctAlphabet} is UPPERCASE, {alphabet} is lowercase
+    // console.log(
+    //     "ctAlphabet: " + ctAlphabet + "\n" +
+    //     "plaintext: " + plaintext
+    // );
     let ciphertext = "";
     
     for (let i=0; i < plaintext.length; i++) {
-        
         // If the plaintext is lowercase
-        if ( alphabet.indexOf(plaintext[i]) !== -1 ) {  
+        if ( alphabet.indexOf(plaintext[i]) !== -1 ) {
+            // console.log('lowercase')
             let charIndex = alphabet.indexOf(plaintext[i]); // grab the index in the alphabet
             let newChar = ctAlphabet[charIndex]; // grab the corresponding ciphertext letter
             ciphertext += newChar.toLowerCase(); // Append lowercase letter to ciphertext

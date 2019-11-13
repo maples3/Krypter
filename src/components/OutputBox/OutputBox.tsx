@@ -1,12 +1,25 @@
 import React from 'react'
 import './OutputBox.css'
+import { IAppState } from '../../types/state';
+import { connect } from 'react-redux';
 
-class OutputBox extends React.Component {
+interface OutputBoxProps {
+    output: string;
+}
+
+interface OutputBoxState {
+}
+
+class OutputBox extends React.Component<OutputBoxProps, OutputBoxState> {
     render() {
         return <div className='OutputBox'>
-            <textarea></textarea>
+            <textarea value={this.props.output} readOnly></textarea>
         </div>;
     }
 }
 
-export default OutputBox;
+function mapStateToProps(state: IAppState): OutputBoxProps {
+    return { output: state.output };
+}
+
+export default connect(mapStateToProps)(OutputBox);

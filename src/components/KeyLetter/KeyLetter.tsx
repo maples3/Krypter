@@ -10,7 +10,7 @@ class KeyLetter extends React.Component<KeyLetterProps> {
     render() {
         return <div className='KeyLetter'>
             <p>{this.props.ptLetter}</p>
-            <input defaultValue={this.props.ctLetter}></input>
+            <p>{this.props.ctLetter}</p>
         </div>;
     }
 }

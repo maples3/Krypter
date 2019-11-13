@@ -1,4 +1,4 @@
-import { AppActions, UPDATE_KEYLETTER, UPDATE_KEYWORDSECTION } from "../types/actions";
+import { AppActions, UPDATE_KEYLETTER, UPDATE_KEYWORDSECTION, UPDATE_INPUT } from "../types/actions";
 import { store } from "./configureStore";
 
 export const updateKeyLetter = (ctLetter: string, newPtLetter: string): AppActions => ({
@@ -15,6 +15,13 @@ export function updateKeywordSection(keyword: string, keyLetter: string): AppAct
         type: UPDATE_KEYWORDSECTION,
         keyword: keyword,
         keyLetter: keyLetter
+    }
+}
+
+export function updateInput(input: string): AppActions {
+    return {
+        type: UPDATE_INPUT,
+        inputText: input
     }
 }
 

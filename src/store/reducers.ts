@@ -1,4 +1,4 @@
-import { AppActions, UPDATE_KEYWORDSECTION, UPDATE_INPUT, UPDATE_KEYLETTER } from "../types/actions";
+import { AppActions, UPDATE_KEYWORDSECTION, UpdateKeywordSection, UPDATE_INPUT } from "../types/actions";
 import { IAppState, IKeySection } from "../types/state";
 import { generateLetterMappings, encryptText } from "../crypto";
 
@@ -8,6 +8,8 @@ const defaultState: IAppState = {
     keySection: {
         keyword: "",
         keyletter: "",
+        validKeyword: false,
+        validKeyletter: false,  
         keyLetters: new Map<string, string>([
             ['a', ''], // index 0
             ['b', ''],
@@ -40,45 +42,60 @@ const defaultState: IAppState = {
 };
 
 function myReducer (state: IAppState = defaultState, action: AppActions): IAppState {
-    let newState = {...state};
+    let newState = { ...state };
 
     switch (action.type) {
 
         case UPDATE_KEYWORDSECTION:
-            // check if we have both fields
-            // Validation - make sure they didn't type anything dumb (not a letter)
-            // TODO: Add valid flags to the store and make the UI red when either of the fields are not valid
-            if (isValidKeyword(action.keyword) && isValidKeyletter(action.keyLetter)) {
+            // TODO: Make the UI red when either of the fields are not valid
+            newState = { ...newState, keySection: validateKeySection(newState.keySection, action) }
+
+            if (newState.keySection.validKeyletter && newState.keySection.validKeyword) {
                 let newKeyMappings = generateLetterMappings(action.keyword, action.keyLetter)
-                let keySection: IKeySection = {...state.keySection, keyLetters: newKeyMappings};
+                let keySection: IKeySection = { ...newState.keySection,
+                    keyLetters: newKeyMappings,
+                    keyword: action.keyword,
+                    keyletter: action.keyLetter
+                };
                 newState = { ...newState, keySection };
             }
             break;
-
-        case UPDATE_KEYLETTER:
-            console.log("Keyletter updated!");
-            break;
-
+        
         case UPDATE_INPUT:
-            break;
+            newState = { ...newState, input: action.inputText }
     }
 
+    // console.log("-----------------------")
     // At the end of every update, recalculate the output
-    newState = { ...newState, output: recalculateOutput(newState)};
-
-    console.log(newState.output);
+    newState = recalculateOutput(newState);
 
     return newState;
 }
 
-function recalculateOutput(state: IAppState) {
-    let ctAlphabet = "";
-    state.keySection.keyLetters.forEach((ptLetter, ctLetter) => {
-        console.log(ptLetter + "/" + ctLetter);
-        ctAlphabet += ctLetter;
-    });
-    console.log(ctAlphabet);
-    return encryptText(ctAlphabet, state.input);
+function validateKeySection(ks: IKeySection, action: UpdateKeywordSection): IKeySection {
+    // console.log(
+    //     "validateKeySection:\n" +
+    //     "isValidKeyword(" + action.keyword + "): " + isValidKeyword(action.keyword) + "\n" +
+    //     "isValidKeyletter(" + action.keyLetter + "): " + isValidKeyletter(action.keyLetter)
+    // );
+    return { ...ks,
+        validKeyword: isValidKeyword(action.keyword),
+        validKeyletter: isValidKeyletter(action.keyLetter)
+    }
+}
+
+function recalculateOutput(state: IAppState): IAppState {
+    if (state.keySection.validKeyletter && state.keySection.validKeyword)
+    {
+        let output = encryptText(state.input, state.keySection.keyword, state.keySection.keyletter);
+        // console.log(output);
+        return { ...state,
+            output // shortcut syntax, yay!
+        }
+    } else {
+        // console.log("KeySection not valid");
+        return state;
+    }
 }
 
 function isValidKeyword(input: string) {

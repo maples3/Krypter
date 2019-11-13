@@ -1,5 +1,9 @@
+.InputBox {
+    padding: 1em;
+}
+
 .InputBox textarea {
     font-family: monospace;
     height: 10em;
-    width: 90em;
+    width: 100%;
 }

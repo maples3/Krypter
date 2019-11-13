@@ -21,9 +21,15 @@ class KeySection extends React.Component<KeySectionProps, KeySectionState> {
 
         return <div className="KeySection">
             <KeyInput></KeyInput>
-            <div className="rowHeader"><p>Plaintext</p><p>Ciphertext</p></div>
-            {alphabet}
-            </div>
+            
+            {   // Shortcut syntax to render alphabetSection only if the below 2 bools are true
+                this.props.validKeyword && this.props.validKeyletter &&
+                <div className="alphabetSection">
+                    <div className="rowHeader"><p>Plaintext</p><p>Ciphertext</p></div>
+                    {alphabet}
+                </div>
+            }
+        </div>
     }
 }
 
