@@ -1,0 +1,10 @@
+.KeyInput {
+    margin: 2px auto;
+    display: grid;
+    grid-template-columns: max-content max-content;
+    grid-gap:5px;
+}
+
+.KeyInput label {
+    text-align: right;
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import { myDispatcher, updateKeywordSection } from "../../store/actionGenerators";
+import './KeyInput.css';
 
 interface KeyInputProps {
 }
@@ -16,11 +17,12 @@ class KeyInput extends React.Component<KeyInputProps, KeyInputState> {
     }
 
     render() {
-        return <div>
+        return <div className="KeyInput">
             <label>Keyword</label>
-            <input value={this.state.keyword} onChange={evt => this.updateKeywordValue(evt)}></input>
+            <input type="text" value={this.state.keyword} onChange={evt => this.updateKeywordValue(evt)} />
+
             <label>Key letter</label>
-            <input value={this.state.keyletter} onChange={evt => this.updateKeyLetterValue(evt)}></input>
+            <input type="text" value={this.state.keyletter} onChange={evt => this.updateKeyLetterValue(evt)} />
         </div>;
     }
 

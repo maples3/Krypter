@@ -20,7 +20,7 @@ class KeySection extends React.Component<KeySectionProps, KeySectionState> {
         })
 
         return <div className="KeySection">
-            <KeyInput></KeyInput>
+            <div className="KeyInputCenter"><KeyInput></KeyInput></div>
             
             {   // Shortcut syntax to render alphabetSection only if the below 2 bools are true
                 this.props.validKeyword && this.props.validKeyletter &&
