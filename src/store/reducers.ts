@@ -1,43 +1,18 @@
 import { AppActions, UPDATE_KEYWORDSECTION, UpdateKeywordSection, UPDATE_INPUT } from "../types/actions";
-import { IAppState, IKeySection } from "../types/state";
+import { IAppState, IKeywordSection } from "../types/state";
 import { generateLetterMappings, encryptText } from "../crypto";
+import { AppModes } from "../types/modes";
 
 const defaultState: IAppState = {
     input: "i like trains",
     output: "",
+    mode: AppModes.KEYWORD,
     keySection: {
         keyword: "",
         keyletter: "",
         validKeyword: false,
         validKeyletter: false,  
-        keyLetters: new Map<string, string>([
-            ['a', ''], // index 0
-            ['b', ''],
-            ['c', ''],
-            ['d', ''],
-            ['e', ''],
-            ['f', ''],
-            ['g', ''],
-            ['h', ''],
-            ['i', ''],
-            ['j', ''],
-            ['k', ''],
-            ['l', ''],
-            ['m', ''],
-            ['n', ''],
-            ['o', ''],
-            ['p', ''],
-            ['q', ''],
-            ['r', ''],
-            ['s', ''],
-            ['t', ''],
-            ['u', ''],
-            ['v', ''],
-            ['w', ''],
-            ['x', ''],
-            ['y', ''],
-            ['z', ''] // index 25
-        ])
+        keyLetters: new Map<string, string>()
     }
 };
 
@@ -52,7 +27,7 @@ function myReducer (state: IAppState = defaultState, action: AppActions): IAppSt
 
             if (newState.keySection.validKeyletter && newState.keySection.validKeyword) {
                 let newKeyMappings = generateLetterMappings(action.keyword, action.keyLetter)
-                let keySection: IKeySection = { ...newState.keySection,
+                let keySection: IKeywordSection = { ...newState.keySection,
                     keyLetters: newKeyMappings,
                     keyword: action.keyword,
                     keyletter: action.keyLetter
@@ -72,7 +47,7 @@ function myReducer (state: IAppState = defaultState, action: AppActions): IAppSt
     return newState;
 }
 
-function validateKeySection(ks: IKeySection, action: UpdateKeywordSection): IKeySection {
+function validateKeySection(ks: IKeywordSection, action: UpdateKeywordSection): IKeywordSection {
     // console.log(
     //     "validateKeySection:\n" +
     //     "isValidKeyword(" + action.keyword + "): " + isValidKeyword(action.keyword) + "\n" +

@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import KeyLetter from '../KeyLetter/KeyLetter';
 import './KeywordSection.css'
 import KeyInput from '../KeyInput/KeyInput';
-import { IKeySection, IAppState } from '../../types/state';
+import { IKeywordSection, IAppState } from '../../types/state';
 
-type KeySectionProps = IKeySection;
+type KeySectionProps = IKeywordSection;
 
 interface KeySectionState {
 }
@@ -22,7 +22,7 @@ class KeywordSection extends React.Component<KeySectionProps, KeySectionState> {
         return <div className="KeywordSection">
             <div className="KeywordInputCenter"><KeyInput></KeyInput></div>
             
-            {   // Shortcut syntax to render alphabetSection only if the below 2 bools are true
+            {   // Shortcut syntax to render alphabetSection only if the below 2 booleans are true
                 this.props.validKeyword && this.props.validKeyletter &&
                 <div className="alphabetSection">
                     <div className="rowHeader"><p>Plaintext</p><p>Ciphertext</p></div>
@@ -38,4 +38,4 @@ function mapStateToProps (state: IAppState): KeySectionProps {
 }
 
 // export default KeySection;
-export default connect(mapStateToProps)(KeywordSection)
+export default connect(mapStateToProps)(KeywordSection);

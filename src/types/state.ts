@@ -1,19 +1,16 @@
+import { AppModes } from "./modes";
 
 export interface IAppState {
     input: string;
     output: string;
-    keySection: IKeySection;
+    keySection: IKeywordSection;
+    mode: AppModes;
 }
 
-export interface IKeySection {
+export interface IKeywordSection {
     keyword: string;
     validKeyword: boolean;
     keyletter: string;
     validKeyletter: boolean;
     keyLetters: Map<string, string>;
-}
-
-export interface IKeyLetter {
-    ctLetter: string; // The "static", non-changing letter of each KeyLetter component
-    ptLetter: string;
 }
