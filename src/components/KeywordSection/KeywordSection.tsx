@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import KeyLetter from '../KeyLetter/KeyLetter';
-import './KeySection.css'
+import './KeywordSection.css'
 import KeyInput from '../KeyInput/KeyInput';
 import { IKeySection, IAppState } from '../../types/state';
 
@@ -10,7 +10,7 @@ type KeySectionProps = IKeySection;
 interface KeySectionState {
 }
 
-class KeySection extends React.Component<KeySectionProps, KeySectionState> {
+class KeywordSection extends React.Component<KeySectionProps, KeySectionState> {
     render() {
         // console.log(this.props);
 
@@ -19,8 +19,8 @@ class KeySection extends React.Component<KeySectionProps, KeySectionState> {
             alphabet.push(<KeyLetter key={ptLetter} ptLetter={ptLetter} ctLetter={inputValue} />)
         })
 
-        return <div className="KeySection">
-            <div className="KeyInputCenter"><KeyInput></KeyInput></div>
+        return <div className="KeywordSection">
+            <div className="KeywordInputCenter"><KeyInput></KeyInput></div>
             
             {   // Shortcut syntax to render alphabetSection only if the below 2 bools are true
                 this.props.validKeyword && this.props.validKeyletter &&
@@ -38,4 +38,4 @@ function mapStateToProps (state: IAppState): KeySectionProps {
 }
 
 // export default KeySection;
-export default connect(mapStateToProps)(KeySection)
+export default connect(mapStateToProps)(KeywordSection)

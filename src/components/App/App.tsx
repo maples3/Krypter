@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import InputBox from '../InputBox/InputBox';
-import KeySection from '../KeySection/KeySection';
+import KeywordSection from '../KeywordSection/KeywordSection';
 import OutputBox from '../OutputBox/OutputBox';
 import { Provider } from 'react-redux';
 import { store } from '../../store/configureStore';
@@ -11,7 +11,7 @@ const App: React.FC = () => {
     <Provider store={store}>
       <div className="App">
         <InputBox />
-        <KeySection />
+        <KeywordSection />
         <OutputBox />
       </div>
     </Provider>

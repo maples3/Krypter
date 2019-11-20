@@ -1,9 +1,9 @@
-.KeySection{
+.KeywordSection{
     margin: 0 auto;
     display: table;
 }
 
-.KeyInputCenter {
+.KeywordInputCenter {
     margin: 0 auto;
     display: grid;
 }
