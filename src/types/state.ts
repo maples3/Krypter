@@ -1,10 +1,10 @@
-import { AppModes } from "./modes";
+import { Ciphers } from "./ciphers";
 
 export interface IAppState {
     input: string;
     output: string;
     keySection: IKeywordSection;
-    mode: AppModes;
+    cipher: Ciphers;
 }
 
 export interface IKeywordSection {

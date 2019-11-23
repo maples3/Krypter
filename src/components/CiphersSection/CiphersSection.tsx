@@ -1,6 +1,6 @@
 import { IAppState } from "../../types/state";
 import React from "react";
-import { AppModes } from "../../types/modes";
+import { Ciphers } from "../../types/ciphers";
 import KeywordSection from "../KeywordSection/KeywordSection";
 import { connect } from "react-redux";
 
@@ -12,7 +12,7 @@ interface CiphersSectionState {
 class CiphersSectionSection extends React.Component<CiphersSectionProps, CiphersSectionState> {
     render() {
         return <div>
-            {this.props.mode === AppModes.KEYWORD && <KeywordSection />}
+            {this.props.cipher === Ciphers.KEYWORD && <KeywordSection />}
         </div>
     }
 }

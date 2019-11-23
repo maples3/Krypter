@@ -1,4 +1,4 @@
 
-export enum AppModes {
+export enum Ciphers {
     KEYWORD = "KEYWORD",
 }

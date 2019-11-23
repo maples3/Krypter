@@ -1,12 +1,12 @@
 import { AppActions, UPDATE_KEYWORDSECTION, UpdateKeywordSection, UPDATE_INPUT } from "../types/actions";
 import { IAppState, IKeywordSection } from "../types/state";
 import { generateLetterMappings, encryptText } from "../crypto";
-import { AppModes } from "../types/modes";
+import { Ciphers } from "../types/ciphers";
 
 const defaultState: IAppState = {
     input: "Enter your text here...",
     output: "",
-    mode: AppModes.KEYWORD,
+    cipher: Ciphers.KEYWORD,
     keySection: {
         keyword: "",
         keyletter: "",
