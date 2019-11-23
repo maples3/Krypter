@@ -12,5 +12,4 @@ export interface IKeywordSection {
     validKeyword: boolean;
     keyletter: string;
     validKeyletter: boolean;
-    keyLetters: Map<string, string>;
 }

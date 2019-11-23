@@ -4,6 +4,7 @@ import KeyLetter from './KeyLetter/KeyLetter';
 import './KeywordSection.css'
 import KeyInput from './KeyInput/KeyInput';
 import { IKeywordSection, IAppState } from '../../types/state';
+import { generateLetterMappings } from '../../crypto/keyword';
 
 type KeySectionProps = IKeywordSection;
 
@@ -12,10 +13,10 @@ interface KeySectionState {
 
 class KeywordSection extends React.Component<KeySectionProps, KeySectionState> {
     render() {
-        // console.log(this.props);
-
         let alphabet: JSX.Element[] = [];
-        this.props.keyLetters.forEach( (inputValue: string, ptLetter: string, map: Map<string, string>) => {
+
+        let keyLetters = generateLetterMappings(this.props.keyword, this.props.keyletter);
+        keyLetters.forEach( (inputValue: string, ptLetter: string, map: Map<string, string>) => {
             alphabet.push(<KeyLetter key={ptLetter} ptLetter={ptLetter} ctLetter={inputValue} />)
         })
 

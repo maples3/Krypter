@@ -1,6 +1,6 @@
 import { AppActions, UPDATE_KEYWORDSECTION, UpdateKeywordSection, UPDATE_INPUT } from "../types/actions";
 import { IAppState, IKeywordSection } from "../types/state";
-import { generateLetterMappings, encryptText } from "../crypto";
+import { encryptText } from "../crypto/keyword";
 import { Ciphers } from "../types/ciphers";
 
 const defaultState: IAppState = {
@@ -11,8 +11,7 @@ const defaultState: IAppState = {
         keyword: "",
         keyletter: "",
         validKeyword: false,
-        validKeyletter: false,  
-        keyLetters: new Map<string, string>()
+        validKeyletter: false
     }
 };
 
@@ -26,9 +25,7 @@ function myReducer (state: IAppState = defaultState, action: AppActions): IAppSt
             newState = { ...newState, keySection: validateKeySection(newState.keySection, action) }
 
             if (newState.keySection.validKeyletter && newState.keySection.validKeyword) {
-                let newKeyMappings = generateLetterMappings(action.keyword, action.keyLetter)
                 let keySection: IKeywordSection = { ...newState.keySection,
-                    keyLetters: newKeyMappings,
                     keyword: action.keyword,
                     keyletter: action.keyLetter
                 };

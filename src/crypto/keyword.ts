@@ -7,30 +7,12 @@
  * Also, all plaintext alphabets will be returned lowercase, and ciphertext alphabets will be uppercase.
  *****************************************/
 
-export function generateLetterMappings(keyword: string, keyletter: string) {
-    let letterMap = new Map<string, string>();
-    let ctAlphabet = generateCiphertextAlphabet(keyword, keyletter);
-
-    for (let i=0; i<26; i++) {
-        letterMap.set(
-            alphabet[i],
-            ctAlphabet[i]
-        )
-    }
-
-    return letterMap;
-}
-
 export function encryptText(plaintext: string, keyword: string, keyletter: string) {
     return encryptTextFromCtAlphabet(plaintext, generateCiphertextAlphabet(keyword, keyletter));
 }
 
 function encryptTextFromCtAlphabet(plaintext: string, ctAlphabet: string) {
     // Remember: {ctAlphabet} is UPPERCASE, {alphabet} is lowercase
-    // console.log(
-    //     "ctAlphabet: " + ctAlphabet + "\n" +
-    //     "plaintext: " + plaintext
-    // );
     let ciphertext = "";
     
     for (let i=0; i < plaintext.length; i++) {
@@ -53,8 +35,6 @@ function encryptTextFromCtAlphabet(plaintext: string, ctAlphabet: string) {
             ciphertext += plaintext[i];
         }
     }
-
-    // console.log(plaintext + "\n" + ciphertext);
 
     return ciphertext;
 }
@@ -81,4 +61,18 @@ function generateCiphertextAlphabet(keyword: string, keyletter: string) {
     }
 
     return ctAlphabet;
+}
+
+export function generateLetterMappings(keyword: string, keyletter: string) {
+    let letterMap = new Map<string, string>();
+    let ctAlphabet = generateCiphertextAlphabet(keyword, keyletter);
+
+    for (let i=0; i<26; i++) {
+        letterMap.set(
+            alphabet[i],
+            ctAlphabet[i]
+        )
+    }
+
+    return letterMap;
 }
