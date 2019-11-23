@@ -4,18 +4,18 @@ export const UPDATE_KEYWORDSECTION = "UPDATE_KEYWORDSECTION"
 export const UPDATE_INPUT = "UPDATE_INPUT";
 export const UPDATE_CIPHERSECTION = "UPDATE_CIPHERSECTION";
 
-export interface UpdateKeywordSection {
+export interface UpdateKeywordSectionAction {
     type: typeof UPDATE_KEYWORDSECTION;
     keyword: string;
     keyLetter: string;
 }
 
-export interface UpdateInput {
+export interface UpdateInputAction {
     type: typeof UPDATE_INPUT;
     inputText: string;
 }
 
-export interface UpdateCipherSection {
+export interface UpdateCipherSectionAction {
     type: typeof UPDATE_CIPHERSECTION;
     cipher: Ciphers;
     decrypt: boolean;
@@ -23,4 +23,4 @@ export interface UpdateCipherSection {
 }
 
 // Aggregate type for all actions
-export type AppActions = UpdateKeywordSection | UpdateInput | UpdateCipherSection;
+export type AppActions = UpdateKeywordSectionAction | UpdateInputAction | UpdateCipherSectionAction;

@@ -35,7 +35,7 @@ class KeywordSection extends React.Component<KeySectionProps, KeySectionState> {
 }
 
 function mapStateToProps (state: IAppState): KeySectionProps {
-    return state.keySection;
+    return state.keywordSection;
 }
 
 export default connect(mapStateToProps)(KeywordSection);

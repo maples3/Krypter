@@ -3,7 +3,7 @@ import { Ciphers } from "./ciphers";
 export interface IAppState {
     input: string;
     output: string;
-    keySection: IKeywordSection;
+    keywordSection: IKeywordSection;
     cipher: Ciphers;
     decrypt: boolean;
     preserveFormatting: boolean;
@@ -24,7 +24,7 @@ export const defaultState: IAppState = {
     decrypt: false,
     preserveFormatting: false,
 
-    keySection: {
+    keywordSection: {
         keyword: "",
         keyletter: "",
         validKeyword: false,
