@@ -17,12 +17,14 @@ class MascSection extends React.Component<MascSectionProps> {
             keyLetters.push(<KeyLetter key={i} index={i} value={this.props.letterValues[i]} />)
         }
 
-        return <div className="MascSection">
-                <div className="MascSectionRowHeader">
+        return <div>
+            <div className="MascSection">
+                <div>
                     <p>Plaintext</p>
                     <p>Ciphertext</p>
                 </div>
                 { keyLetters }
+            </div>
         </div>;
     }
 }

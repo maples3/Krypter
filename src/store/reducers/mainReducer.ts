@@ -1,9 +1,9 @@
 import { AppActions, UPDATE_KEYWORDSECTION, UPDATE_INPUT, UPDATE_CIPHERSECTION, UPDATE_MASCLETTER } from "../../types/actions";
 import { IAppState, defaultState } from "../../types/state";
-import { keywordSectionReducer, keywordDecrypt, keywordEncrypt } from "./keywordSectionReducer";
+import { keywordSectionReducer, keywordDecrypt, keywordEncrypt } from "./keywordReducer";
 import { Ciphers } from "../../types/ciphers";
 import { formattingReducer } from "./formattingReducer";
-import { mascSectionReducer } from "./mascSectionReducer";
+import { mascSectionReducer } from "./mascReducer";
 
 function mainReducer (state: IAppState = defaultState, action: AppActions): IAppState {
 
