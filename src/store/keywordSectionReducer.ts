@@ -1,5 +1,6 @@
 import { IKeywordSection } from "../types/state";
 import { UpdateKeywordSectionAction } from "../types/actions";
+import { encryptText, decryptText } from "../crypto/keyword";
 
 export function keywordSectionReducer(ks: IKeywordSection, action: UpdateKeywordSectionAction): IKeywordSection {
     // Check if the inputs are valid
@@ -17,6 +18,14 @@ export function keywordSectionReducer(ks: IKeywordSection, action: UpdateKeyword
     }
 
     return ks;
+}
+
+export function keywordEncrypt(ks: IKeywordSection, input: string): string {
+    return encryptText(input, ks.keyword, ks.keyletter);
+}
+
+export function keywordDecrypt(ks: IKeywordSection, input: string): string {
+    return decryptText(input, ks.keyword, ks.keyletter);
 }
 
 function isValidKeyword(input: string) {

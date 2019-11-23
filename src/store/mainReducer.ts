@@ -1,12 +1,11 @@
 import { AppActions, UPDATE_KEYWORDSECTION, UPDATE_INPUT, UPDATE_CIPHERSECTION } from "../types/actions";
 import { IAppState, defaultState } from "../types/state";
-import { encryptText, decryptText } from "../crypto/keyword";
-import { keywordSectionReducer } from "./keywordSectionReducer";
+import { keywordSectionReducer, keywordDecrypt, keywordEncrypt } from "./keywordSectionReducer";
+import { Ciphers } from "../types/ciphers";
 
 function mainReducer (state: IAppState = defaultState, action: AppActions): IAppState {
 
     switch (action.type) {
-
         case UPDATE_CIPHERSECTION:
             state = { ...state,
                 cipher: action.cipher,
@@ -26,32 +25,22 @@ function mainReducer (state: IAppState = defaultState, action: AppActions): IApp
             state = { ...state, input: action.inputText }
     }
 
-    // console.log("-----------------------")
-    // At the end of every update, recalculate the output
-    let output = recalculateOutput(state);
+    
+    // At the end of every update, recalculate the output based on the cipher and en/de-crypt selections
+    let newOutput = "";
+    switch (state.cipher) {
+        case Ciphers.KEYWORD:
+            newOutput = state.decrypt ? keywordDecrypt(state.keywordSection, state.input) : keywordEncrypt(state.keywordSection, state.input);
+            break;
+    }
     
     // TODO: formatting preservation
 
     state = { ...state,
-        output
+        output: newOutput
     };
 
     return state;
-}
-
-function recalculateOutput(state: IAppState): string {
-    if (state.keywordSection.validKeyletter && state.keywordSection.validKeyword)
-    {
-        let output: string;
-        if (state.decrypt === false) {
-            output = encryptText(state.input, state.keywordSection.keyword, state.keywordSection.keyletter);
-        } else {
-            output = decryptText(state.input, state.keywordSection.keyword, state.keywordSection.keyletter);
-        }
-        return output;
-    } else {
-        return "";
-    }
 }
 
 export default mainReducer;

@@ -28,6 +28,6 @@ export const defaultState: IAppState = {
         keyword: "",
         keyletter: "",
         validKeyword: false,
-        validKeyletter: false
+        validKeyletter: false,
     }
 };
