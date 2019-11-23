@@ -1,6 +1,5 @@
 import React from "react";
 import { myDispatcher, updateMascLetter } from "../../../store/actionGenerators";
-import './KeyLetter.css'
 import { alphabet } from "../../../crypto/common";
 
 interface KeyLetterProps {
@@ -15,9 +14,8 @@ class KeyLetter extends React.Component<KeyLetterProps> {
     }
 
     render() {
-        return <div className="KeyLetter">
+        return <div>
             <label>{alphabet[this.props.index]}</label>
-            <br />
             <input type="text" value={this.props.value} onChange={evt => this.handleChange(evt)} />
         </div>;
     }
