@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import KeyLetter from '../KeyLetter/KeyLetter';
+import KeyLetter from './KeyLetter/KeyLetter';
 import './KeywordSection.css'
-import KeyInput from '../KeyInput/KeyInput';
+import KeyInput from './KeyInput/KeyInput';
 import { IKeywordSection, IAppState } from '../../types/state';
 
 type KeySectionProps = IKeywordSection;
