@@ -1,5 +1,6 @@
-import { AppActions, UPDATE_KEYWORDSECTION, UPDATE_INPUT } from "../types/actions";
+import { AppActions, UPDATE_KEYWORDSECTION, UPDATE_INPUT, UPDATE_CIPHERSECTION } from "../types/actions";
 import { store } from "./configureStore";
+import { Ciphers } from "../types/ciphers";
 
 export function updateKeywordSection(keyword: string, keyLetter: string): AppActions {
     return {
@@ -13,6 +14,15 @@ export function updateInput(input: string): AppActions {
     return {
         type: UPDATE_INPUT,
         inputText: input
+    }
+}
+
+export function updateCipherSelector(cipher: Ciphers, decrypt: boolean, preserveFormatting: boolean): AppActions {
+    return {
+        type: UPDATE_CIPHERSECTION,
+        cipher,
+        decrypt,
+        preserveFormatting
     }
 }
 

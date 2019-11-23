@@ -1,7 +1,8 @@
+import { Ciphers } from "./ciphers";
 
 export const UPDATE_KEYWORDSECTION = "UPDATE_KEYWORDSECTION"
 export const UPDATE_INPUT = "UPDATE_INPUT";
-// export const UPDATE_MODE = "UPDATE_MODE"; // Todo: support both encryption/decryption
+export const UPDATE_CIPHERSECTION = "UPDATE_CIPHERSECTION";
 
 export interface UpdateKeywordSection {
     type: typeof UPDATE_KEYWORDSECTION;
@@ -14,5 +15,12 @@ export interface UpdateInput {
     inputText: string;
 }
 
+export interface UpdateCipherSection {
+    type: typeof UPDATE_CIPHERSECTION;
+    cipher: Ciphers;
+    decrypt: boolean;
+    preserveFormatting: boolean;
+}
+
 // Aggregate type for all actions
-export type AppActions = UpdateKeywordSection | UpdateInput;
+export type AppActions = UpdateKeywordSection | UpdateInput | UpdateCipherSection;

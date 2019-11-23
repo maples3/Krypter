@@ -1,4 +1,5 @@
 
 export enum Ciphers {
-    KEYWORD = "KEYWORD",
+    KEYWORD = "Keyword",
+    MASC = "MASC"
 }

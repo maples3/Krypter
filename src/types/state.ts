@@ -5,6 +5,8 @@ export interface IAppState {
     output: string;
     keySection: IKeywordSection;
     cipher: Ciphers;
+    decrypt: boolean;
+    preserveFormatting: boolean;
 }
 
 export interface IKeywordSection {
@@ -13,3 +15,19 @@ export interface IKeywordSection {
     keyletter: string;
     validKeyletter: boolean;
 }
+
+export const defaultState: IAppState = {
+    input: "Enter your text here...",
+    output: "",
+    
+    cipher: Ciphers.KEYWORD,
+    decrypt: false,
+    preserveFormatting: false,
+
+    keySection: {
+        keyword: "",
+        keyletter: "",
+        validKeyword: false,
+        validKeyletter: false
+    }
+};

@@ -1,25 +1,20 @@
-import { AppActions, UPDATE_KEYWORDSECTION, UpdateKeywordSection, UPDATE_INPUT } from "../types/actions";
-import { IAppState, IKeywordSection } from "../types/state";
+import { AppActions, UPDATE_KEYWORDSECTION, UpdateKeywordSection, UPDATE_INPUT, UPDATE_CIPHERSECTION } from "../types/actions";
+import { IAppState, IKeywordSection, defaultState } from "../types/state";
 import { encryptText } from "../crypto/keyword";
-import { Ciphers } from "../types/ciphers";
-
-const defaultState: IAppState = {
-    input: "Enter your text here...",
-    output: "",
-    cipher: Ciphers.KEYWORD,
-    keySection: {
-        keyword: "",
-        keyletter: "",
-        validKeyword: false,
-        validKeyletter: false
-    }
-};
 
 function myReducer (state: IAppState = defaultState, action: AppActions): IAppState {
     let newState = { ...state };
 
     switch (action.type) {
 
+        case UPDATE_CIPHERSECTION:
+            newState = { ...newState,
+                cipher: action.cipher,
+                decrypt: action.decrypt,
+                preserveFormatting: action.preserveFormatting
+            }
+            break;
+            
         case UPDATE_KEYWORDSECTION:
             // TODO: Make the UI red when either of the fields are not valid
             newState = { ...newState, keySection: validateKeySection(newState.keySection, action) }

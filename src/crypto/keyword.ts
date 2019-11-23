@@ -6,6 +6,7 @@
  * 
  * Also, all plaintext alphabets will be returned lowercase, and ciphertext alphabets will be uppercase.
  *****************************************/
+import { alphabet } from './common';
 
 export function encryptText(plaintext: string, keyword: string, keyletter: string) {
     return encryptTextFromCtAlphabet(plaintext, generateCiphertextAlphabet(keyword, keyletter));
@@ -48,8 +49,6 @@ function stripDuplicateLetters(input: string) {
     }
     return output;
 }
-
-const alphabet = "abcdefghijklmnopqrstuvwxyz";
 
 function generateCiphertextAlphabet(keyword: string, keyletter: string) {
     let unshiftedCtAlphabet = stripDuplicateLetters(keyword + alphabet).toUpperCase();
