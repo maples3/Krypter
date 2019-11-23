@@ -21,11 +21,15 @@ export function keywordSectionReducer(ks: IKeywordSection, action: UpdateKeyword
 }
 
 export function keywordEncrypt(ks: IKeywordSection, input: string): string {
-    return encryptText(input, ks.keyword, ks.keyletter);
+    return keySectionValid(ks) ? encryptText(input, ks.keyword, ks.keyletter) : "";
 }
 
 export function keywordDecrypt(ks: IKeywordSection, input: string): string {
-    return decryptText(input, ks.keyword, ks.keyletter);
+    return keySectionValid(ks) ? decryptText(input, ks.keyword, ks.keyletter) : "";
+}
+
+function keySectionValid(ks: IKeywordSection): boolean {
+    return isValidKeyword(ks.keyword) && isValidKeyletter(ks.keyletter);
 }
 
 function isValidKeyword(input: string) {

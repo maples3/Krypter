@@ -2,6 +2,7 @@ import { AppActions, UPDATE_KEYWORDSECTION, UPDATE_INPUT, UPDATE_CIPHERSECTION }
 import { IAppState, defaultState } from "../types/state";
 import { keywordSectionReducer, keywordDecrypt, keywordEncrypt } from "./keywordSectionReducer";
 import { Ciphers } from "../types/ciphers";
+import { formattingReducer } from "./formattingReducer";
 
 function mainReducer (state: IAppState = defaultState, action: AppActions): IAppState {
 
@@ -34,7 +35,7 @@ function mainReducer (state: IAppState = defaultState, action: AppActions): IApp
             break;
     }
     
-    // TODO: formatting preservation
+    newOutput = formattingReducer(newOutput, state.preserveFormatting);
 
     state = { ...state,
         output: newOutput

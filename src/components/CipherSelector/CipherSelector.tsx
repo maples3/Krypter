@@ -24,7 +24,7 @@ class CipherSelector extends React.Component<CipherSelectorProps, CipherSelector
         let options: JSX.Element[] = [];
         cipherList.forEach(
             (enumValue: Ciphers, displayName: string) => {
-                options.push(<option value={displayName}>{displayName}</option>);
+                options.push(<option key={enumValue} value={displayName}>{displayName}</option>);
             }
         );
 
