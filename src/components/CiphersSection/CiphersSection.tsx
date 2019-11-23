@@ -4,6 +4,7 @@ import { Ciphers } from "../../types/ciphers";
 import KeywordSection from "../KeywordSection/KeywordSection";
 import { connect } from "react-redux";
 import CipherSelector from "../CipherSelector/CipherSelector";
+import MascSection from "../MascSection/MascSection";
 
 type CiphersSectionProps = IAppState;
 
@@ -14,7 +15,8 @@ class CiphersSectionSection extends React.Component<CiphersSectionProps, Ciphers
     render() {
         return <div>
             <CipherSelector />
-            {this.props.cipher === Ciphers.KEYWORD && <KeywordSection />}
+            { this.props.cipher === Ciphers.KEYWORD && <KeywordSection /> }
+            { this.props.cipher === Ciphers.MASC && <MascSection /> }
         </div>
     }
 }

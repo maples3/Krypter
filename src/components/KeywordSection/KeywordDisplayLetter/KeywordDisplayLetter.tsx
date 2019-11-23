@@ -1,5 +1,5 @@
 import React from 'react';
-import './KeyLetter.css'
+import './KeywordDisplayLetter.css'
 
 interface KeyLetterProps {
     ptLetter: string;
@@ -8,7 +8,7 @@ interface KeyLetterProps {
 
 class KeyLetter extends React.Component<KeyLetterProps> {
     render() {
-        return <div className='KeyLetter'>
+        return <div className='KeywordDisplayLetter'>
             <p>{this.props.ptLetter}</p>
             <p>{this.props.ctLetter}</p>
         </div>;

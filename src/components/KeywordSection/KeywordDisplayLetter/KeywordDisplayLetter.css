@@ -1,10 +1,10 @@
-.KeyLetter {
+.KeywordDisplayLetter {
     display: inline-block;
     /* border: 1px solid black; */
     padding: 5px;
 }
 
-.KeyLetter p {
+.KeywordDisplayLetter p {
     font-weight: bold;
     margin: 0;
     text-align: center;

@@ -1,6 +1,6 @@
-import { IKeywordSection } from "../types/state";
-import { UpdateKeywordSectionAction } from "../types/actions";
-import { encryptText, decryptText } from "../crypto/keyword";
+import { IKeywordSection } from "../../types/state";
+import { UpdateKeywordSectionAction } from "../../types/actions";
+import { encryptText, decryptText } from "../../crypto/keyword";
 
 export function keywordSectionReducer(ks: IKeywordSection, action: UpdateKeywordSectionAction): IKeywordSection {
     // Check if the inputs are valid

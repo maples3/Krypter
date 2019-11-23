@@ -4,6 +4,7 @@ export interface IAppState {
     input: string;
     output: string;
     keywordSection: IKeywordSection;
+    mascSection: IMascSection;
     cipher: Ciphers;
     decrypt: boolean;
     preserveFormatting: boolean;
@@ -16,11 +17,16 @@ export interface IKeywordSection {
     validKeyletter: boolean;
 }
 
+export interface IMascSection {
+    isValid: boolean;
+    letters: string[]; // exactly 26 elements, the CT letters in order as they correlate to the standard alphabet
+}
+
 export const defaultState: IAppState = {
     input: "Enter your text here...",
     output: "",
     
-    cipher: Ciphers.KEYWORD,
+    cipher: Ciphers.MASC,
     decrypt: false,
     preserveFormatting: false,
 
@@ -28,6 +34,16 @@ export const defaultState: IAppState = {
         keyword: "",
         keyletter: "",
         validKeyword: false,
-        validKeyletter: false,
+        validKeyletter: false
+    },
+
+    mascSection: {
+        isValid: false,
+        // Bad things happen if the array isn't already populated with empty strings
+        // If you set value={undefined} on an input element, it's not considered controlled.
+        // I want my KeyLetter <input>s to be controlled, so the array needs to be filled with
+        // something other than `undefined`.  An empty string works beautifully.
+        // https://reactjs.org/docs/forms.html#controlled-input-null-value
+        letters: Array<string>(26).fill("")
     }
 };

@@ -1,8 +1,9 @@
 import { Ciphers } from "./ciphers";
 
-export const UPDATE_KEYWORDSECTION = "UPDATE_KEYWORDSECTION"
 export const UPDATE_INPUT = "UPDATE_INPUT";
 export const UPDATE_CIPHERSECTION = "UPDATE_CIPHERSECTION";
+export const UPDATE_KEYWORDSECTION = "UPDATE_KEYWORDSECTION";
+export const UPDATE_MASCLETTER = "UPDATE_MASCLETTER";
 
 export interface UpdateKeywordSectionAction {
     type: typeof UPDATE_KEYWORDSECTION;
@@ -22,5 +23,11 @@ export interface UpdateCipherSectionAction {
     preserveFormatting: boolean;
 }
 
+export interface UpdateMascLetterAction {
+    type: typeof UPDATE_MASCLETTER;
+    changedIndex: number;
+    newValue: string;
+}
+
 // Aggregate type for all actions
-export type AppActions = UpdateKeywordSectionAction | UpdateInputAction | UpdateCipherSectionAction;
+export type AppActions = UpdateKeywordSectionAction | UpdateInputAction | UpdateCipherSectionAction | UpdateMascLetterAction;
