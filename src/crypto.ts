@@ -46,7 +46,7 @@ function encryptTextFromCtAlphabet(plaintext: string, ctAlphabet: string) {
             // Same steps as above, but swapping the case
             let charIndex = alphabet.indexOf(plaintext[i].toLowerCase());
             let newChar = ctAlphabet[charIndex];
-            ciphertext += newChar.toLowerCase();
+            ciphertext += newChar;
         }
         // If it's not a letter, then just copy it to the ciphertext
         else {

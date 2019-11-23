@@ -42,34 +42,36 @@ function myReducer (state: IAppState = defaultState, action: AppActions): IAppSt
 
     // console.log("-----------------------")
     // At the end of every update, recalculate the output
-    newState = recalculateOutput(newState);
+    newState = { ...newState,
+        output: recalculateOutput(newState)
+    };
 
     return newState;
 }
 
 function validateKeySection(ks: IKeywordSection, action: UpdateKeywordSection): IKeywordSection {
-    // console.log(
-    //     "validateKeySection:\n" +
-    //     "isValidKeyword(" + action.keyword + "): " + isValidKeyword(action.keyword) + "\n" +
-    //     "isValidKeyletter(" + action.keyLetter + "): " + isValidKeyletter(action.keyLetter)
-    // );
-    return { ...ks,
+    let newKS = { ...ks,
         validKeyword: isValidKeyword(action.keyword),
         validKeyletter: isValidKeyletter(action.keyLetter)
+    };
+
+    if (newKS.validKeyword) {
+        newKS.keyword = action.keyword;
     }
+    if (newKS.validKeyletter) {
+        newKS.keyletter = action.keyLetter;
+    }
+
+    return newKS;
 }
 
-function recalculateOutput(state: IAppState): IAppState {
+function recalculateOutput(state: IAppState): string {
     if (state.keySection.validKeyletter && state.keySection.validKeyword)
     {
         let output = encryptText(state.input, state.keySection.keyword, state.keySection.keyletter);
-        // console.log(output);
-        return { ...state,
-            output // shortcut syntax, yay!
-        }
+        return output;
     } else {
-        // console.log("KeySection not valid");
-        return state;
+        return "";
     }
 }
 
