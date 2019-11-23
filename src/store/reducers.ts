@@ -1,6 +1,6 @@
 import { AppActions, UPDATE_KEYWORDSECTION, UpdateKeywordSection, UPDATE_INPUT, UPDATE_CIPHERSECTION } from "../types/actions";
 import { IAppState, IKeywordSection, defaultState } from "../types/state";
-import { encryptText } from "../crypto/keyword";
+import { encryptText, decryptText } from "../crypto/keyword";
 
 function myReducer (state: IAppState = defaultState, action: AppActions): IAppState {
     let newState = { ...state };
@@ -14,7 +14,7 @@ function myReducer (state: IAppState = defaultState, action: AppActions): IAppSt
                 preserveFormatting: action.preserveFormatting
             }
             break;
-            
+
         case UPDATE_KEYWORDSECTION:
             // TODO: Make the UI red when either of the fields are not valid
             newState = { ...newState, keySection: validateKeySection(newState.keySection, action) }
@@ -34,8 +34,12 @@ function myReducer (state: IAppState = defaultState, action: AppActions): IAppSt
 
     // console.log("-----------------------")
     // At the end of every update, recalculate the output
+    let output = recalculateOutput(newState);
+    
+    // TODO: formatting preservation
+
     newState = { ...newState,
-        output: recalculateOutput(newState)
+        output
     };
 
     return newState;
@@ -60,7 +64,12 @@ function validateKeySection(ks: IKeywordSection, action: UpdateKeywordSection): 
 function recalculateOutput(state: IAppState): string {
     if (state.keySection.validKeyletter && state.keySection.validKeyword)
     {
-        let output = encryptText(state.input, state.keySection.keyword, state.keySection.keyletter);
+        let output: string;
+        if (state.decrypt === false) {
+            output = encryptText(state.input, state.keySection.keyword, state.keySection.keyletter);
+        } else {
+            output = decryptText(state.input, state.keySection.keyword, state.keySection.keyletter);
+        }
         return output;
     } else {
         return "";

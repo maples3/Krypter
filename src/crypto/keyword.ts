@@ -9,10 +9,15 @@
 import { alphabet } from './common';
 
 export function encryptText(plaintext: string, keyword: string, keyletter: string) {
-    return encryptTextFromCtAlphabet(plaintext, generateCiphertextAlphabet(keyword, keyletter));
+    return encryptTextFromCtAlphabet(plaintext, generateCiphertextAlphabet(keyword, keyletter), alphabet);
 }
 
-function encryptTextFromCtAlphabet(plaintext: string, ctAlphabet: string) {
+export function decryptText(inputCiphertext: string, keyword: string, keyletter: string) {
+    let ctAlphabet = generateCiphertextAlphabet(keyword, keyletter);
+    return encryptTextFromCtAlphabet(inputCiphertext, alphabet.toUpperCase(), ctAlphabet.toLowerCase());
+}
+
+function encryptTextFromCtAlphabet(plaintext: string, ctAlphabet: string, alphabet: string) {
     // Remember: {ctAlphabet} is UPPERCASE, {alphabet} is lowercase
     let ciphertext = "";
     
