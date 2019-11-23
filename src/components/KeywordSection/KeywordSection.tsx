@@ -37,5 +37,4 @@ function mapStateToProps (state: IAppState): KeySectionProps {
     return state.keySection;
 }
 
-// export default KeySection;
 export default connect(mapStateToProps)(KeywordSection);

@@ -2,7 +2,6 @@ import { AppActions, UPDATE_KEYWORDSECTION, UPDATE_INPUT } from "../types/action
 import { store } from "./configureStore";
 
 export function updateKeywordSection(keyword: string, keyLetter: string): AppActions {
-    // console.log("updateKeywordSection: " + keyword + " - " + keyLetter);
     return {
         type: UPDATE_KEYWORDSECTION,
         keyword: keyword,

@@ -4,7 +4,7 @@ import { generateLetterMappings, encryptText } from "../crypto";
 import { AppModes } from "../types/modes";
 
 const defaultState: IAppState = {
-    input: "i like trains",
+    input: "Enter your text here...",
     output: "",
     mode: AppModes.KEYWORD,
     keySection: {

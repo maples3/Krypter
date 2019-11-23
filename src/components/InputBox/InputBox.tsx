@@ -1,8 +1,11 @@
 import React from "react";
 import './InputBox.css'
 import { myDispatcher, updateInput } from "../../store/actionGenerators";
+import { IAppState } from "../../types/state";
+import { connect } from "react-redux";
 
 interface InputBoxProps {
+    input: string
 }
 
 interface InputBoxState {
@@ -12,7 +15,7 @@ interface InputBoxState {
 class InputBox extends React.Component<InputBoxProps, InputBoxState> {
     constructor(props: InputBoxProps) {
         super(props);
-        this.state = { input: "" };
+        this.state = { input: this.props.input };
     }
 
     render() {
@@ -28,4 +31,8 @@ class InputBox extends React.Component<InputBoxProps, InputBoxState> {
     }
 }
 
-export default InputBox;
+function mapStateToProps(state: IAppState): InputBoxProps {
+    return { input: state.input };
+}
+
+export default connect(mapStateToProps)(InputBox);
