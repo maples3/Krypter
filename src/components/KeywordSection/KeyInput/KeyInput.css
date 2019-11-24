@@ -2,9 +2,11 @@
     margin: 2px auto;
     display: grid;
     grid-template-columns: max-content max-content;
-    grid-gap:5px;
+    grid-gap: 5px;
+    align-items: center;
 }
 
 .KeyInput label {
     text-align: right;
+    color: #ff5722;
 }

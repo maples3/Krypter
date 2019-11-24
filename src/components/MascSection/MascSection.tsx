@@ -19,7 +19,7 @@ class MascSection extends React.Component<MascSectionProps> {
 
         return <div>
             <div className="MascSection">
-                <div>
+                <div className="MascRowHeader">
                     <p>Plaintext</p>
                     <p>Ciphertext</p>
                 </div>

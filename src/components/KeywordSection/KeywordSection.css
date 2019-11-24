@@ -3,6 +3,10 @@
     display: table;
 }
 
+.KeywordSection p {
+    padding-top: 5px;
+}
+
 .KeywordInputCenter {
     margin: 0 auto;
     display: grid;
@@ -17,8 +21,5 @@
     font-weight: bold;
     margin: 0;
     text-align: right;
-}
-
-.alphabetSection {
-    border: 1px solid black;
+    color: #ff5722;
 }

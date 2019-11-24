@@ -6,7 +6,7 @@ interface KeyLetterProps {
     ctLetter: string;
 };
 
-class KeyLetter extends React.Component<KeyLetterProps> {
+class KeywordDisplayLetter extends React.Component<KeyLetterProps> {
     render() {
         return <div className='KeywordDisplayLetter'>
             <p>{this.props.ptLetter}</p>
@@ -15,4 +15,4 @@ class KeyLetter extends React.Component<KeyLetterProps> {
     }
 }
 
-export default KeyLetter;
+export default KeywordDisplayLetter;

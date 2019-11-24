@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import KeyLetter from './KeywordDisplayLetter/KeywordDisplayLetter';
+import KeywordDisplayLetter from './KeywordDisplayLetter/KeywordDisplayLetter';
 import './KeywordSection.css'
 import KeyInput from './KeyInput/KeyInput';
 import { IKeywordSection, IAppState } from '../../types/state';
@@ -17,7 +17,7 @@ class KeywordSection extends React.Component<KeySectionProps, KeySectionState> {
 
         let keyLetters = generateLetterMappings(this.props.keyword, this.props.keyletter);
         keyLetters.forEach( (inputValue: string, ptLetter: string, map: Map<string, string>) => {
-            alphabet.push(<KeyLetter key={ptLetter} ptLetter={ptLetter} ctLetter={inputValue} />)
+            alphabet.push(<KeywordDisplayLetter key={ptLetter} ptLetter={ptLetter} ctLetter={inputValue} />)
         })
 
         return <div className="KeywordSection">

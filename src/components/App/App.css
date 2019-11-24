@@ -6,4 +6,28 @@
   border-radius: 1em;
 
   max-width: 1000px;
+  min-width: 750px;
+
+}
+
+body {
+  background-color: #222831;
+  color: #eeeeee;
+}
+
+input, textarea, select, option {
+  background-color: #2d4059;
+  border: 1px solid #000000;
+  color: #eeeeee;
+  padding: 3px;
+}
+
+textarea {
+  padding: 7px;
+  border-radius: 3px;
+}
+
+.header {
+  color: #ff5722;
+  font-weight: bold;
 }
