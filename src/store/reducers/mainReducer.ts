@@ -1,9 +1,9 @@
 import { AppActions, UPDATE_KEYWORDSECTION, UPDATE_INPUT, UPDATE_CIPHERSECTION, UPDATE_MASCLETTER } from "../../types/actions";
 import { IAppState, defaultState } from "../../types/state";
-import { keywordSectionReducer, keywordDecrypt, keywordEncrypt } from "./keywordReducer";
-import { Ciphers } from "../../types/ciphers";
+import { keywordSectionReducer} from "./keywordReducer";
 import { formattingReducer } from "./formattingReducer";
 import { mascSectionReducer } from "./mascReducer";
+import { generateOutput } from "./cryptoReducer";
 
 function mainReducer (state: IAppState = defaultState, action: AppActions): IAppState {
 
@@ -35,18 +35,11 @@ function mainReducer (state: IAppState = defaultState, action: AppActions): IApp
 
     
     // At the end of every update, recalculate the output based on the cipher and en/de-crypt selections
-    let newOutput = "";
-    switch (state.cipher) {
-        case Ciphers.KEYWORD:
-            newOutput = state.decrypt ? keywordDecrypt(state.keywordSection, state.input) : keywordEncrypt(state.keywordSection, state.input);
-            break;
-    }
-    
+    let newOutput = generateOutput(state);
     newOutput = formattingReducer(newOutput, state.preserveFormatting);
-
     state = { ...state,
         output: newOutput
-    };
+    }
 
     return state;
 }

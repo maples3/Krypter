@@ -18,7 +18,6 @@ export interface IKeywordSection {
 }
 
 export interface IMascSection {
-    isValid: boolean;
     letters: string[]; // exactly 26 elements, the CT letters in order as they correlate to the standard alphabet
 }
 
@@ -28,7 +27,7 @@ export const defaultState: IAppState = {
     
     cipher: Ciphers.MASC,
     decrypt: false,
-    preserveFormatting: false,
+    preserveFormatting: true,
 
     keywordSection: {
         keyword: "",
@@ -38,7 +37,6 @@ export const defaultState: IAppState = {
     },
 
     mascSection: {
-        isValid: false,
         // Bad things happen if the array isn't already populated with empty strings
         // If you set value={undefined} on an input element, it's not considered controlled.
         // I want my KeyLetter <input>s to be controlled, so the array needs to be filled with
