@@ -1,4 +1,4 @@
-@import '../colors';
+@import '../include';
 
 .App {
 	margin-left: auto;
@@ -7,6 +7,7 @@
 	border-radius: 1em;
 	max-width: 1000px;
 	min-width: 750px;
+	font-family: $mainFont;
 }
 
 body {
@@ -25,9 +26,11 @@ textarea {
 	background-color: $textareaBg;
 	border: 1px solid #000000;
 	color: $light;
-	padding: 3px;
 	padding: 7px;
+	height: 10em;
+	width: 100%;
 	border-radius: 3px;
+	font-family: $textareaFont;
 }
 
 select {
@@ -46,6 +49,11 @@ option {
 
 .letterRowHeader {
 	color: $accent;
-  font-weight: bold;
-  text-align: right;
+	font-weight: bold;
+	text-align: right;
+	font-family: $mainFont;
+}
+
+.keyDisplay {
+	font-family: $keyDisplayFont;
 }

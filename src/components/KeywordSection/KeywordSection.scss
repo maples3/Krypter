@@ -1,4 +1,4 @@
-@import '../colors';
+@import '../include';
 
 .KeywordSection {
 	margin: 0 auto;
@@ -12,9 +12,12 @@
 
 .alphabetSection {
 	display: flex;
+	padding-top: 1em;
 	
 	p {
 		padding: 0 5px;
+		margin: 0;
+		height: 1.5em;
 	}
 	
 	.displayKeyLetter {
@@ -24,5 +27,6 @@
 	.letterRowHeader {
 		margin-right: 5px;
 		text-align: right;
+		justify-content: center;
 	}
 }

@@ -27,7 +27,7 @@ class KeywordSection extends React.Component<KeySectionProps, KeySectionState> {
             
             {   // Shortcut syntax to render alphabetSection only if the below 2 booleans are true
                 this.props.validKeyword && this.props.validKeyletter &&
-                <div className="alphabetSection">
+                <div className="alphabetSection keyDisplay">
                     <div className="letterRowHeader"><p>Plaintext</p><p>Ciphertext</p></div>
                     {alphabet}
                 </div>

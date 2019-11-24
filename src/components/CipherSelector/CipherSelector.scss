@@ -2,6 +2,8 @@
 .CipherSelector {
 	display: grid;
 	margin: 1em auto;
+	align-items: center;
+
 	.Cipher {
 		grid-column: 1;
 		margin: 0 auto;

@@ -1,4 +1,4 @@
-@import '../colors';
+@import '../include';
 
 .MascSection {
 	display: flex;
@@ -15,5 +15,6 @@
 	input {
 		margin: 0 2px;
 		width: 1em;
+		text-align: center;
 	}
 }

@@ -18,7 +18,7 @@ class MascSection extends React.Component<MascSectionProps> {
         }
 
         return <div>
-            <div className="MascSection">
+            <div className="MascSection keyDisplay">
                 <div className="letterRowHeader">
                     <p>Plaintext</p>
                     <p>Ciphertext</p>
