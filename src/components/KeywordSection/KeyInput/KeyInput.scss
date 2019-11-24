@@ -1,0 +1,14 @@
+@import '../../colors';
+
+.KeyInput {
+	margin: 2px auto;
+	display: grid;
+	grid-template-columns: max-content max-content;
+	grid-gap: 5px;
+    align-items: center;
+    
+	label {
+		text-align: right;
+		color: $accent;
+	}
+}

@@ -3,7 +3,7 @@ import { alphabet } from "../../crypto/common";
 import KeyLetter from "./KeyLetter/KeyLetter";
 import { IAppState } from "../../types/state";
 import { connect } from "react-redux";
-import './MascSection.css'
+import './MascSection.scss'
 
 interface MascSectionProps {
     letterValues: string[];
@@ -19,7 +19,7 @@ class MascSection extends React.Component<MascSectionProps> {
 
         return <div>
             <div className="MascSection">
-                <div className="MascRowHeader">
+                <div className="letterRowHeader">
                     <p>Plaintext</p>
                     <p>Ciphertext</p>
                 </div>

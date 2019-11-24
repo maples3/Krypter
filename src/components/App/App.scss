@@ -1,0 +1,51 @@
+@import '../colors';
+
+.App {
+	margin-left: auto;
+	margin-right: auto;
+	width: 90%;
+	border-radius: 1em;
+	max-width: 1000px;
+	min-width: 750px;
+}
+
+body {
+	background-color: $bgDark;
+	color: $light;
+}
+
+input {
+	background-color: $inputBg;
+	border: 1px solid #000000;
+	color: $light;
+	padding: 3px;
+}
+
+textarea {
+	background-color: $textareaBg;
+	border: 1px solid #000000;
+	color: $light;
+	padding: 3px;
+	padding: 7px;
+	border-radius: 3px;
+}
+
+select {
+	background-color: $inputBg;
+	border: 1px solid #000000;
+	color: $light;
+	padding: 3px;
+}
+
+option {
+	background-color: $inputBg;
+	border: 1px solid #000000;
+	color: $light;
+	padding: 3px;
+}
+
+.letterRowHeader {
+	color: $accent;
+  font-weight: bold;
+  text-align: right;
+}

@@ -1,6 +1,6 @@
 import React from "react";
 import { myDispatcher, updateKeywordSection } from "../../../store/actionGenerators";
-import './KeyInput.css';
+import './KeyInput.scss';
 
 interface KeyInputProps {
 }

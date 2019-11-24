@@ -1,7 +1,7 @@
 import React from 'react'
-import './OutputBox.css'
 import { IAppState } from '../../types/state';
 import { connect } from 'react-redux';
+import './OutputBox.scss'
 
 interface OutputBoxProps {
     output: string;

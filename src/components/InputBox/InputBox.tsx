@@ -1,5 +1,5 @@
 import React from "react";
-import './InputBox.css'
+import './InputBox.scss'
 import { myDispatcher, updateInput } from "../../store/actionGenerators";
 import { IAppState } from "../../types/state";
 import { connect } from "react-redux";

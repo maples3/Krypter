@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import KeywordDisplayLetter from './KeywordDisplayLetter/KeywordDisplayLetter';
-import './KeywordSection.css'
+import './KeywordSection.scss'
 import KeyInput from './KeyInput/KeyInput';
 import { IKeywordSection, IAppState } from '../../types/state';
 import { generateLetterMappings } from '../../crypto/keyword';
@@ -17,7 +16,10 @@ class KeywordSection extends React.Component<KeySectionProps, KeySectionState> {
 
         let keyLetters = generateLetterMappings(this.props.keyword, this.props.keyletter);
         keyLetters.forEach( (inputValue: string, ptLetter: string, map: Map<string, string>) => {
-            alphabet.push(<KeywordDisplayLetter key={ptLetter} ptLetter={ptLetter} ctLetter={inputValue} />)
+            alphabet.push(<div className="displayKeyLetter">
+                <p>{ptLetter}</p>
+                <p>{inputValue}</p>
+            </div>)
         })
 
         return <div className="KeywordSection">
@@ -26,7 +28,7 @@ class KeywordSection extends React.Component<KeySectionProps, KeySectionState> {
             {   // Shortcut syntax to render alphabetSection only if the below 2 booleans are true
                 this.props.validKeyword && this.props.validKeyletter &&
                 <div className="alphabetSection">
-                    <div className="rowHeader"><p>Plaintext</p><p>Ciphertext</p></div>
+                    <div className="letterRowHeader"><p>Plaintext</p><p>Ciphertext</p></div>
                     {alphabet}
                 </div>
             }

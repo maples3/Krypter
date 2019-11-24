@@ -1,0 +1,17 @@
+
+.CipherSelector {
+	display: grid;
+	margin: 1em auto;
+	.Cipher {
+		grid-column: 1;
+		margin: 0 auto;
+	}
+	.Direction {
+		grid-column: 2;
+		margin: 0 auto;
+	}
+	.PreserveFormatting {
+		grid-column: 3;
+		margin: 0 auto;
+	}
+}

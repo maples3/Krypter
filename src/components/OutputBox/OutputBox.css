@@ -1,9 +1,0 @@
-.OutputBox {
-    padding: 1em;
-}
-
-.OutputBox textarea {
-    font-family: monospace;
-    height: 10em;
-    width: 100%;
-}

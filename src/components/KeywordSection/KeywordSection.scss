@@ -1,0 +1,28 @@
+@import '../colors';
+
+.KeywordSection {
+	margin: 0 auto;
+	display: table;
+}
+
+.KeywordInputCenter {
+	margin: 0 auto;
+	display: grid;
+}
+
+.alphabetSection {
+	display: flex;
+	
+	p {
+		padding: 0 5px;
+	}
+	
+	.displayKeyLetter {
+		text-align: center;
+	}
+
+	.letterRowHeader {
+		margin-right: 5px;
+		text-align: right;
+	}
+}

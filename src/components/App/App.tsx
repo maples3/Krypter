@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 import InputBox from '../InputBox/InputBox';
 import OutputBox from '../OutputBox/OutputBox';
 import { Provider } from 'react-redux';

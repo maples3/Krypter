@@ -25,7 +25,7 @@ export const defaultState: IAppState = {
     input: "Enter your text here...",
     output: "",
     
-    cipher: Ciphers.MASC,
+    cipher: Ciphers.KEYWORD,
     decrypt: false,
     preserveFormatting: true,
 

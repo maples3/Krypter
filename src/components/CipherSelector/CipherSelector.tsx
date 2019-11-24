@@ -1,6 +1,6 @@
 import React from "react";
 import { Ciphers } from "../../types/ciphers";
-import './CipherSelector.css'
+import './CipherSelector.scss'
 import { IAppState } from "../../types/state";
 import { connect } from "react-redux";
 import { myDispatcher, updateCipherSelector } from "../../store/actionGenerators";
