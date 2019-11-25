@@ -1,3 +1,4 @@
+@import '../include';
 
 .CipherSelector {
 	display: grid;
@@ -15,5 +16,19 @@
 	.PreserveFormatting {
 		grid-column: 3;
 		margin: 0 auto;
+	}
+
+	select {
+		background-color: $inputBg;
+		border: 1px solid #000000;
+		color: $light;
+		padding: 3px;
+	}
+
+	option {
+		background-color: $inputBg;
+		border: 1px solid #000000;
+		color: $light;
+		padding: 3px;
 	}
 }

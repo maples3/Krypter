@@ -32,24 +32,3 @@ textarea {
 	border-radius: 3px;
 	font-family: $textareaFont;
 }
-
-select {
-	background-color: $inputBg;
-	border: 1px solid #000000;
-	color: $light;
-	padding: 3px;
-}
-
-option {
-	background-color: $inputBg;
-	border: 1px solid #000000;
-	color: $light;
-	padding: 3px;
-}
-
-.letterRowHeader {
-	color: $accent;
-	font-weight: bold;
-	text-align: right;
-	font-family: $mainFont;
-}

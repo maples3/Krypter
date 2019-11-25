@@ -1,8 +1,7 @@
 import React from "react";
-import './InputBox.scss'
-import { myDispatcher, updateInput } from "../../store/actionGenerators";
-import { IAppState } from "../../types/state";
 import { connect } from "react-redux";
+import { IAppState } from "../../types/state";
+import { myDispatcher, updateInput } from "../../store/actionGenerators";
 
 interface InputBoxProps {
     input: string
