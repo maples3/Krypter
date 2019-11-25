@@ -6,7 +6,7 @@ NOTE: All exported functions expect the input to be sanitized.
 import { alphabet, encryptTextFromCtAlphabet } from './common';
 
 export function encryptText(plaintext: string, keyLetter: string) {
-    return encryptTextFromCtAlphabet(plaintext, generateCiphertextAlphabet(keyLetter), alphabet);
+    return encryptTextFromCtAlphabet(plaintext, generateCiphertextAlphabet(keyLetter).toUpperCase(), alphabet);
 }
 
 export function decryptText(inputCiphertext: string, keyLetter: string) {
