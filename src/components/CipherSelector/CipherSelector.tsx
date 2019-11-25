@@ -1,9 +1,9 @@
 import React from "react";
-import { Ciphers } from "../../types/ciphers";
-import './CipherSelector.scss'
-import { IAppState } from "../../types/state";
 import { connect } from "react-redux";
+import { Ciphers } from "../../types/ciphers";
+import { IAppState } from "../../types/state";
 import { myDispatcher, updateCipherSelector } from "../../store/actionGenerators";
+import './CipherSelector.scss'
 
 interface CipherSelectorProps {
     cipher: Ciphers,
@@ -11,26 +11,24 @@ interface CipherSelectorProps {
     decrypt: boolean
 }
 
-interface CipherSelectorState {
-}
-
 const cipherList = new Map<string, Ciphers>([
     ["Keyword", Ciphers.KEYWORD],
     ["MASC", Ciphers.MASC],
+    ["Caesar", Ciphers.CAESAR],
 ]);
 
-class CipherSelector extends React.Component<CipherSelectorProps, CipherSelectorState> {
+class CipherSelector extends React.Component<CipherSelectorProps> {
     render() {
         let options: JSX.Element[] = [];
         cipherList.forEach(
             (enumValue: Ciphers, displayName: string) => {
-                options.push(<option key={enumValue} value={displayName}>{displayName}</option>);
+                options.push(<option key={enumValue} value={displayName} selected={enumValue === this.props.cipher} >{displayName}</option>);
             }
         );
 
         return <div className="CipherSelector">
             <div className="Cipher">
-                <select value={this.props.cipher} onChange={evt => this.handleCipherChange(evt)}>
+                <select onChange={evt => this.handleCipherChange(evt)}>
                     { options }
                 </select>
             </div>

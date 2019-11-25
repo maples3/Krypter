@@ -1,4 +1,4 @@
-import { AppActions, UPDATE_KEYWORDSECTION, UPDATE_INPUT, UPDATE_CIPHERSECTION, UPDATE_MASCLETTER, UpdateMascLetterAction, UpdateCipherSectionAction, UpdateInputAction, UpdateKeywordSectionAction } from "../types/actions";
+import { AppActions, UPDATE_KEYWORDSECTION, UPDATE_INPUT, UPDATE_CIPHERSECTION, UPDATE_MASCLETTER, UpdateMascLetterAction, UpdateCipherSectionAction, UpdateInputAction, UpdateKeywordSectionAction, UpdateCaesarAction, UPDATE_CAESARSECTION } from "../types/actions";
 import { store } from "./configureStore";
 import { Ciphers } from "../types/ciphers";
 
@@ -32,6 +32,13 @@ export function updateMascLetter(changedIndex: number, newValue: string): Update
         changedIndex,
         newValue
     };
+}
+
+export function updateCaesarLetter(newLetter: string): UpdateCaesarAction {
+    return {
+        type: UPDATE_CAESARSECTION,
+        keyLetter: newLetter
+    }
 }
 
 // Is this hacky?  It seems so simple, but nothing online even came close to suggesting it...

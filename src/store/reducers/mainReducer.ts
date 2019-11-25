@@ -1,9 +1,10 @@
-import { AppActions, UPDATE_KEYWORDSECTION, UPDATE_INPUT, UPDATE_CIPHERSECTION, UPDATE_MASCLETTER } from "../../types/actions";
+import { AppActions, UPDATE_KEYWORDSECTION, UPDATE_INPUT, UPDATE_CIPHERSECTION, UPDATE_MASCLETTER, UPDATE_CAESARSECTION } from "../../types/actions";
 import { IAppState, defaultState } from "../../types/state";
 import { keywordSectionReducer} from "./keywordReducer";
 import { formattingReducer } from "./formattingReducer";
 import { mascSectionReducer } from "./mascReducer";
 import { generateOutput } from "./cryptoReducer";
+import { caesarSectionReducer } from "./caesarReducer";
 
 function mainReducer (state: IAppState = defaultState, action: AppActions): IAppState {
 
@@ -26,6 +27,12 @@ function mainReducer (state: IAppState = defaultState, action: AppActions): IApp
         case UPDATE_MASCLETTER:
             state = { ...state,
                 mascSection: mascSectionReducer(state.mascSection, action)
+            }
+            break;
+
+        case UPDATE_CAESARSECTION:
+            state = { ...state,
+                caesarSection: caesarSectionReducer(state.caesarSection, action)
             }
             break;
         

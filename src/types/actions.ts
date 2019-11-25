@@ -4,6 +4,7 @@ export const UPDATE_INPUT = "UPDATE_INPUT";
 export const UPDATE_CIPHERSECTION = "UPDATE_CIPHERSECTION";
 export const UPDATE_KEYWORDSECTION = "UPDATE_KEYWORDSECTION";
 export const UPDATE_MASCLETTER = "UPDATE_MASCLETTER";
+export const UPDATE_CAESARSECTION = "UPDATE_CAESARSECTION";
 
 export interface UpdateKeywordSectionAction {
     type: typeof UPDATE_KEYWORDSECTION;
@@ -29,5 +30,10 @@ export interface UpdateMascLetterAction {
     newValue: string;
 }
 
+export interface UpdateCaesarAction {
+    type: typeof UPDATE_CAESARSECTION;
+    keyLetter: string;
+}
+
 // Aggregate type for all actions
-export type AppActions = UpdateKeywordSectionAction | UpdateInputAction | UpdateCipherSectionAction | UpdateMascLetterAction;
+export type AppActions = UpdateKeywordSectionAction | UpdateInputAction | UpdateCipherSectionAction | UpdateMascLetterAction | UpdateCaesarAction;
