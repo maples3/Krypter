@@ -19,7 +19,7 @@ export interface IKeywordSection {
 }
 
 export interface ICaesarSection {
-    keyLetter: string;
+    shift: number;
 }
 
 export interface IMascSection {
@@ -51,6 +51,6 @@ export const defaultState: IAppState = {
     },
 
     caesarSection: {
-        keyLetter: "A"
+        shift: 0
     }
 };

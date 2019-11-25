@@ -32,7 +32,7 @@ export interface UpdateMascLetterAction {
 
 export interface UpdateCaesarAction {
     type: typeof UPDATE_CAESARSECTION;
-    keyLetter: string;
+    shift: number;
 }
 
 // Aggregate type for all actions

@@ -5,18 +5,18 @@ NOTE: All exported functions expect the input to be sanitized.
 
 import { alphabet, encryptTextFromCtAlphabet } from './common';
 
-export function encryptText(plaintext: string, keyLetter: string) {
-    return encryptTextFromCtAlphabet(plaintext, generateCiphertextAlphabet(keyLetter), alphabet);
+export function encryptText(plaintext: string, shift: number) {
+    return encryptTextFromCtAlphabet(plaintext, generateCiphertextAlphabet(shift), alphabet);
 }
 
-export function decryptText(inputCiphertext: string, keyLetter: string) {
-    let ctAlphabet = generateCiphertextAlphabet(keyLetter);
+export function decryptText(inputCiphertext: string, shift: number) {
+    let ctAlphabet = generateCiphertextAlphabet(shift);
     return encryptTextFromCtAlphabet(inputCiphertext, alphabet.toUpperCase(), ctAlphabet.toLowerCase());
 }
 
-export function generateCiphertextAlphabet(keyLetter: string): string {
-    let upperAlphabet = alphabet.toUpperCase();
-    let keyLetterIndex = upperAlphabet.indexOf(keyLetter);
-    let ctAlphabetArray = Array.from(alphabet).map((currVal: string, index: number) => {return alphabet[(index + keyLetterIndex) % 26]});
+export function generateCiphertextAlphabet(shift: number): string {
+    let ctAlphabetArray = Array.from(alphabet).map(
+        (currVal: string, index: number) => { return alphabet[((26 - shift) + index + 26) % 26]; }
+    );
     return ctAlphabetArray.join('').toUpperCase();
 }

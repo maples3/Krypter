@@ -34,10 +34,10 @@ export function updateMascLetter(changedIndex: number, newValue: string): Update
     };
 }
 
-export function updateCaesarLetter(newLetter: string): UpdateCaesarAction {
+export function updateCaesarLetter(newShift: number): UpdateCaesarAction {
     return {
         type: UPDATE_CAESARSECTION,
-        keyLetter: newLetter
+        shift: newShift
     }
 }
 

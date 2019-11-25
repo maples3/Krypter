@@ -7,33 +7,33 @@ import './CaesarSection.scss'
 import AlphabetDisplay from "../AlphabetDisplay/AlphabetDisplay";
 
 interface CaesarSectionProps {
-    keyLetter: string;
+    shift: number;
 };
 
 class CaesarSection extends React.Component<CaesarSectionProps> {
     render() {
         return <div>
             <div className="CaesarSection">
-                <label>Key Letter</label>
-                <input type="text" value={this.props.keyLetter} onChange={evt => this.handleKeyLetterChange(evt)} />
+                <label>Shift</label>
+                <input type="number" value={this.props.shift} onChange={evt => this.handleKeyLetterChange(evt)} />
             </div>
-            { this.props.keyLetter !== "" && <AlphabetDisplay ctAlphabet={this.getCtAlphabet()} /> }
+            <AlphabetDisplay ctAlphabet={this.getCtAlphabet()} />
         </div>
     }
 
     handleKeyLetterChange(evt: React.ChangeEvent<HTMLInputElement>) {
-        let newKeyLetter = evt.target.value;
-        myDispatcher(updateCaesarLetter(newKeyLetter));
+        let shift = evt.target.value;
+        myDispatcher(updateCaesarLetter(parseInt(shift)));
     }
 
     getCtAlphabet(): string {
-        return generateCiphertextAlphabet(this.props.keyLetter);
+        return generateCiphertextAlphabet(this.props.shift);
     }
 }
 
 function mapStateToProps(state: IAppState): CaesarSectionProps {
     return {
-        keyLetter: state.caesarSection.keyLetter
+        shift: state.caesarSection.shift
     }
 }
 
