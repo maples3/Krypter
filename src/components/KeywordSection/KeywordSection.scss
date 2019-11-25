@@ -1,5 +1,3 @@
-@import '../include';
-
 .KeywordSection {
 	margin: 0 auto;
 	display: table;
@@ -8,25 +6,4 @@
 .KeywordInputCenter {
 	margin: 0 auto;
 	display: grid;
-}
-
-.alphabetSection {
-	display: flex;
-	padding-top: 1em;
-	
-	p {
-		padding: 0 5px;
-		margin: 0;
-		height: 1.5em;
-	}
-	
-	.displayKeyLetter {
-		text-align: center;
-	}
-
-	.letterRowHeader {
-		margin-right: 5px;
-		text-align: right;
-		justify-content: center;
-	}
 }

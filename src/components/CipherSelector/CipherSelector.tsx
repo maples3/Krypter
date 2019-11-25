@@ -12,9 +12,9 @@ interface CipherSelectorProps {
 }
 
 const cipherList = new Map<string, Ciphers>([
-    ["Keyword", Ciphers.KEYWORD],
-    ["MASC", Ciphers.MASC],
     ["Caesar", Ciphers.CAESAR],
+    ["MASC", Ciphers.MASC],
+    ["Keyword", Ciphers.KEYWORD],
 ]);
 
 class CipherSelector extends React.Component<CipherSelectorProps> {

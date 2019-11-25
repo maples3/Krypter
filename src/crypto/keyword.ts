@@ -27,7 +27,7 @@ function stripDuplicateLetters(input: string) {
     return output;
 }
 
-function generateCiphertextAlphabet(keyword: string, keyletter: string) {
+export function generateCiphertextAlphabet(keyword: string, keyletter: string) {
     let unshiftedCtAlphabet = stripDuplicateLetters(keyword + alphabet).toUpperCase();
     let ctAlphabet = "";
     let startIndex = keyletter.toLowerCase().charCodeAt(0) - 97;
@@ -39,16 +39,16 @@ function generateCiphertextAlphabet(keyword: string, keyletter: string) {
     return ctAlphabet;
 }
 
-export function generateLetterMappings(keyword: string, keyletter: string) {
-    let letterMap = new Map<string, string>();
-    let ctAlphabet = generateCiphertextAlphabet(keyword, keyletter);
+// export function generateLetterMappings(keyword: string, keyletter: string) {
+//     let letterMap = new Map<string, string>();
+//     let ctAlphabet = generateCiphertextAlphabet(keyword, keyletter);
 
-    for (let i=0; i<26; i++) {
-        letterMap.set(
-            alphabet[i],
-            ctAlphabet[i]
-        )
-    }
+//     for (let i=0; i<26; i++) {
+//         letterMap.set(
+//             alphabet[i],
+//             ctAlphabet[i]
+//         )
+//     }
 
-    return letterMap;
-}
+//     return letterMap;
+// }

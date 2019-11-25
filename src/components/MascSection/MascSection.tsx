@@ -17,9 +17,11 @@ class MascSection extends React.Component<MascSectionProps> {
             keyLetters.push(<KeyLetter key={i} index={i} value={this.props.letterValues[i]} />)
         }
 
+        // AlphabetDisplayHeader below is used from the
+        // CSS definitions for the <AlphabetDisplay> component
         return <div>
-            <div className="MascSection keyDisplay">
-                <div className="letterRowHeader">
+            <div className="MascSection">
+                <div className="header">
                     <p>Plaintext</p>
                     <p>Ciphertext</p>
                 </div>

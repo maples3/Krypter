@@ -3,33 +3,24 @@ import { connect } from 'react-redux';
 import './KeywordSection.scss'
 import KeyInput from './KeyInput/KeyInput';
 import { IKeywordSection, IAppState } from '../../types/state';
-import { generateLetterMappings } from '../../crypto/keyword';
+import { generateCiphertextAlphabet } from '../../crypto/keyword';
+import AlphabetDisplay from '../AlphabetDisplay/AlphabetDisplay';
 
 type KeySectionProps = IKeywordSection;
 
 class KeywordSection extends React.Component<KeySectionProps> {
     render() {
-        let alphabet: JSX.Element[] = [];
-
-        let keyLetters = generateLetterMappings(this.props.keyword, this.props.keyletter);
-        keyLetters.forEach( (inputValue: string, ptLetter: string, map: Map<string, string>) => {
-            alphabet.push(<div className="displayKeyLetter">
-                <p>{ptLetter}</p>
-                <p>{inputValue}</p>
-            </div>)
-        })
-
         return <div className="KeywordSection">
             <div className="KeywordInputCenter"><KeyInput keyword={this.props.keyword} keyletter={this.props.keyletter}></KeyInput></div>
             
             {   // Shortcut syntax to render alphabetSection only if the below 2 booleans are true
-                this.props.validKeyword && this.props.validKeyletter &&
-                <div className="alphabetSection keyDisplay">
-                    <div className="letterRowHeader"><p>Plaintext</p><p>Ciphertext</p></div>
-                    {alphabet}
-                </div>
+                this.props.validKeyword && this.props.validKeyletter && <AlphabetDisplay ctAlphabet={this.getCtAlphabet()} />
             }
-        </div>
+        </div>;
+    }
+
+    getCtAlphabet(): string {
+        return generateCiphertextAlphabet(this.props.keyword, this.props.keyletter);
     }
 }
 
