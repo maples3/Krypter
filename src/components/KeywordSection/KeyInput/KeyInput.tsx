@@ -3,14 +3,11 @@ import { myDispatcher, updateKeywordSection } from "../../../store/actionGenerat
 import './KeyInput.scss';
 
 interface KeyInputProps {
+        keyword: string;
+        keyletter: string;
 }
 
-interface KeyInputState {
-    keyword: string;
-    keyletter: string;
-}
-
-class KeyInput extends React.Component<KeyInputProps, KeyInputState> {
+class KeyInput extends React.Component<KeyInputProps> {
     constructor(props: KeyInputProps) {
         super(props);
         this.state = { keyword: "", keyletter: "" };
@@ -19,23 +16,23 @@ class KeyInput extends React.Component<KeyInputProps, KeyInputState> {
     render() {
         return <div className="KeyInput">
             <label>Keyword</label>
-            <input type="text" value={this.state.keyword} onChange={evt => this.updateKeywordValue(evt)} />
+            <input type="text" value={this.props.keyword} onChange={evt => this.updateKeywordValue(evt)} />
 
             <label>Key letter</label>
-            <input type="text" value={this.state.keyletter} onChange={evt => this.updateKeyLetterValue(evt)} />
+            <input type="text" value={this.props.keyletter} onChange={evt => this.updateKeyLetterValue(evt)} />
         </div>;
     }
 
     updateKeywordValue(evt: React.ChangeEvent<HTMLInputElement>) {
         var newKeyword = evt.target.value;
         this.setState({ keyword: newKeyword });
-        myDispatcher(updateKeywordSection(newKeyword, this.state.keyletter));
+        myDispatcher(updateKeywordSection(newKeyword, this.props.keyletter));
     }
 
     updateKeyLetterValue(evt: React.ChangeEvent<HTMLInputElement>) {
         var newKeyletter = evt.target.value;
         this.setState({ keyletter: newKeyletter });
-        myDispatcher(updateKeywordSection(this.state.keyword, newKeyletter));
+        myDispatcher(updateKeywordSection(this.props.keyword, newKeyletter));
     }
 }
 

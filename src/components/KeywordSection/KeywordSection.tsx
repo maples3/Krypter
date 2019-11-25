@@ -7,10 +7,7 @@ import { generateLetterMappings } from '../../crypto/keyword';
 
 type KeySectionProps = IKeywordSection;
 
-interface KeySectionState {
-}
-
-class KeywordSection extends React.Component<KeySectionProps, KeySectionState> {
+class KeywordSection extends React.Component<KeySectionProps> {
     render() {
         let alphabet: JSX.Element[] = [];
 
@@ -23,7 +20,7 @@ class KeywordSection extends React.Component<KeySectionProps, KeySectionState> {
         })
 
         return <div className="KeywordSection">
-            <div className="KeywordInputCenter"><KeyInput></KeyInput></div>
+            <div className="KeywordInputCenter"><KeyInput keyword={this.props.keyword} keyletter={this.props.keyletter}></KeyInput></div>
             
             {   // Shortcut syntax to render alphabetSection only if the below 2 booleans are true
                 this.props.validKeyword && this.props.validKeyletter &&
