@@ -20,7 +20,7 @@ export function decryptText(inputCiphertext: string, keyword: string, keyletter:
 function stripDuplicateLetters(input: string) {
     let output: string = "";
     for (let i=0; i<input.length; i++) {
-        if (output.indexOf(input[i]) === -1) {
+        if (output.indexOf(input[i].toLowerCase()) === -1) {
             output += input[i].toLowerCase();
         }
     }
@@ -33,22 +33,9 @@ export function generateCiphertextAlphabet(keyword: string, keyletter: string) {
     let startIndex = keyletter.toLowerCase().charCodeAt(0) - 97;
 
     for (let i=0; i<26; i++) {
-        ctAlphabet += unshiftedCtAlphabet[ (i + (26 - startIndex)) % 26 ];
+        let nextLetterIndex = (i + (26 - startIndex)) % 26
+        ctAlphabet += unshiftedCtAlphabet[nextLetterIndex];
     }
 
     return ctAlphabet;
 }
-
-// export function generateLetterMappings(keyword: string, keyletter: string) {
-//     let letterMap = new Map<string, string>();
-//     let ctAlphabet = generateCiphertextAlphabet(keyword, keyletter);
-
-//     for (let i=0; i<26; i++) {
-//         letterMap.set(
-//             alphabet[i],
-//             ctAlphabet[i]
-//         )
-//     }
-
-//     return letterMap;
-// }
