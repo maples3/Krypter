@@ -16,7 +16,7 @@ export function decryptText(inputCiphertext: string, shift: number) {
 
 export function generateCiphertextAlphabet(shift: number): string {
     let ctAlphabetArray = Array.from(alphabet).map(
-        (currVal: string, index: number) => { return alphabet[((26 - shift) + index + 26) % 26]; }
+        (currVal: string, index: number) => { return alphabet[(index + shift) % 26]; }
     );
     return ctAlphabetArray.join('').toUpperCase();
 }
