@@ -23,7 +23,7 @@ class AlphabetDisplay extends React.Component<AlphabetDisplayProps> {
 
         for (let i=0; i<alphabet.length; i++) {
             letters.push(
-                <div className="AlphabetDisplayLetter">
+                <div className="AlphabetDisplayLetter" key={i}>
                     <p>{alphabet[i]}</p>
                     <p>{this.props.ctAlphabet[i]}</p>
                 </div>

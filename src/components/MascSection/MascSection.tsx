@@ -22,8 +22,8 @@ class MascSection extends React.Component<MascSectionProps> {
         return <div>
             <div className="MascSection">
                 <div className="header">
-                    <p>Plaintext</p>
-                    <p>Ciphertext</p>
+                    <p className="plaintextLabel">Plaintext</p>
+                    <p className="ciphertextLabel">Ciphertext</p>
                 </div>
                 { keyLetters }
             </div>

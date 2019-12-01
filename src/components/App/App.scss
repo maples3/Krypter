@@ -8,6 +8,12 @@
 	max-width: 1000px;
 	min-width: 750px;
 	font-family: $mainFont;
+
+	h1 {
+		text-align: center;
+		color: $mainAccent;
+		font-family: 'Roboto Mono', monospace;
+	}
 }
 
 body {
@@ -31,4 +37,5 @@ textarea {
 	width: 100%;
 	border-radius: 3px;
 	font-family: $textareaFont;
+	margin-top: 2em;
 }
