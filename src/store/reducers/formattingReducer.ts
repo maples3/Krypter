@@ -1,13 +1,13 @@
 const BLOCK_LENGTH = 5;
 
-export function formattingReducer(currentOutput: string, preserveFormatting: boolean): string {
+export function formattingReducer(str: string, preserveFormatting: boolean): string {
     if (! preserveFormatting) {
-        let newOutput = stripNonAlpha(currentOutput);
+        let newOutput = stripNonAlpha(str);
         newOutput = newOutput.toUpperCase();
         newOutput = splitIntoBlocks(newOutput, BLOCK_LENGTH);
         return newOutput;
     } else {
-        return currentOutput;
+        return str;
     }
 }
 
