@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1c080f21029036f8d42280503e5203ca",
+    "revision": "145e11cab9e8627d8a7896782a4402b1",
     "url": "/Krypter/index.html"
   },
   {
