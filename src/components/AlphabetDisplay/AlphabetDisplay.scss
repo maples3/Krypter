@@ -1,9 +1,14 @@
 @import '../include';
 
 .AlphabetDisplay {
-    display: flex;
-    justify-content: center;
-	padding-top: 1em;
+    
+    display: grid;
+    grid-auto-flow: column;
+    overflow-x: auto;
+    max-width: 725px;
+    
+    margin: 0 auto;
+    padding-top: 1em;
 	
 	p {
 		padding: 0 5px;

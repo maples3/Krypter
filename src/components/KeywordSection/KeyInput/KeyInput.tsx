@@ -15,11 +15,13 @@ class KeyInput extends React.Component<KeyInputProps> {
 
     render() {
         return <div className="KeyInput">
-            <label>Keyword</label>
-            <input type="text" value={this.props.keyword} onChange={evt => this.updateKeywordValue(evt)} />
+            <div className="gridLayout">
+                <label>Keyword</label>
+                <input type="text" value={this.props.keyword} onChange={evt => this.updateKeywordValue(evt)} />
 
-            <label>Key letter</label>
-            <input type="text" value={this.props.keyletter} onChange={evt => this.updateKeyLetterValue(evt)} />
+                <label>Key letter</label>
+                <input type="text" value={this.props.keyletter} onChange={evt => this.updateKeyLetterValue(evt)} />
+            </div>
         </div>;
     }
 

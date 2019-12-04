@@ -2,13 +2,17 @@
 
 .KeyInput {
 	margin: 2px auto;
-	display: grid;
-	grid-template-columns: max-content max-content;
-	grid-gap: 5px;
-    align-items: center;
-    
-	label {
-		text-align: right;
-		color: $mainAccent;
+	display: table;
+
+	.gridLayout {
+		display: grid;
+		grid-template-columns: max-content max-content;
+		grid-gap: 5px;
+		align-items: center;
+		
+		label {
+			text-align: right;
+			color: $mainAccent;
+		}
 	}
 }

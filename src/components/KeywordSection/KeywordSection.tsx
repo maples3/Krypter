@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import './KeywordSection.scss'
 import KeyInput from './KeyInput/KeyInput';
 import { IKeywordSection, IAppState } from '../../types/state';
 import { generateCiphertextAlphabet } from '../../crypto/keyword';
@@ -10,9 +9,8 @@ type KeySectionProps = IKeywordSection;
 
 class KeywordSection extends React.Component<KeySectionProps> {
     render() {
-        return <div className="KeywordSection">
-            <div className="KeywordInputCenter"><KeyInput keyword={this.props.keyword} keyletter={this.props.keyletter}></KeyInput></div>
-            
+        return <div>
+            <KeyInput keyword={this.props.keyword} keyletter={this.props.keyletter} />
             {   // Shortcut syntax to render alphabetSection only if the below 2 booleans are true
                 this.props.validKeyword && this.props.validKeyletter && <AlphabetDisplay ctAlphabet={this.getCtAlphabet()} />
             }

@@ -14,7 +14,7 @@ class KeyLetter extends React.Component<KeyLetterProps> {
     }
 
     render() {
-        return <div>
+        return <div className="KeyLetter">
             <label>{alphabet[this.props.index]}</label>
             <input type="text" value={this.props.value} onChange={evt => this.handleChange(evt)} />
         </div>;
