@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/Krypter/precache-manifest.c4aaa9cb20d09a3dc33a9f72b4d5da6a.js"
+  "/Krypter/precache-manifest.00517c198bba7d30ef7a49195aa68330.js"
 );
 
 self.addEventListener('message', (event) => {

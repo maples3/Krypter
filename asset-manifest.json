@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Krypter/static/css/main.e0322478.chunk.css",
-    "main.js": "/Krypter/static/js/main.192fe03d.chunk.js",
-    "main.js.map": "/Krypter/static/js/main.192fe03d.chunk.js.map",
+    "main.js": "/Krypter/static/js/main.7bb0c9b4.chunk.js",
+    "main.js.map": "/Krypter/static/js/main.7bb0c9b4.chunk.js.map",
     "runtime-main.js": "/Krypter/static/js/runtime-main.86b52eaa.js",
     "runtime-main.js.map": "/Krypter/static/js/runtime-main.86b52eaa.js.map",
     "static/js/2.8d5f89f3.chunk.js": "/Krypter/static/js/2.8d5f89f3.chunk.js",
     "static/js/2.8d5f89f3.chunk.js.map": "/Krypter/static/js/2.8d5f89f3.chunk.js.map",
     "index.html": "/Krypter/index.html",
-    "precache-manifest.c4aaa9cb20d09a3dc33a9f72b4d5da6a.js": "/Krypter/precache-manifest.c4aaa9cb20d09a3dc33a9f72b4d5da6a.js",
+    "precache-manifest.00517c198bba7d30ef7a49195aa68330.js": "/Krypter/precache-manifest.00517c198bba7d30ef7a49195aa68330.js",
     "service-worker.js": "/Krypter/service-worker.js",
     "static/css/main.e0322478.chunk.css.map": "/Krypter/static/css/main.e0322478.chunk.css.map"
   },
@@ -16,6 +16,6 @@
     "static/js/runtime-main.86b52eaa.js",
     "static/js/2.8d5f89f3.chunk.js",
     "static/css/main.e0322478.chunk.css",
-    "static/js/main.192fe03d.chunk.js"
+    "static/js/main.7bb0c9b4.chunk.js"
   ]
 }

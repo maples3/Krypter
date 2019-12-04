@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "2d81b98514c2eb2cd930d7357cd3af59",
+    "revision": "1c080f21029036f8d42280503e5203ca",
     "url": "/Krypter/index.html"
   },
   {
-    "revision": "a935076f7c608a384d1e",
+    "revision": "e4ec5662af55061c3c82",
     "url": "/Krypter/static/css/main.e0322478.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Krypter/static/js/2.8d5f89f3.chunk.js"
   },
   {
-    "revision": "a935076f7c608a384d1e",
-    "url": "/Krypter/static/js/main.192fe03d.chunk.js"
+    "revision": "e4ec5662af55061c3c82",
+    "url": "/Krypter/static/js/main.7bb0c9b4.chunk.js"
   },
   {
     "revision": "547b9d52ec595beb9e90",
