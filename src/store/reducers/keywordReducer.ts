@@ -9,11 +9,11 @@ export function keywordSectionReducer(ks: IKeywordSection, action: UpdateKeyword
         validKeyletter: isValidKeyletter(action.keyLetter)
     }
 
-    // If they are, allow them into the state
-    if (ks.validKeyword) {
+    // If they are valid OR empty, allow them into the state
+    if (ks.validKeyword || action.keyword.length === 0) {
         ks.keyword = action.keyword;
     }
-    if (ks.validKeyletter) {
+    if (ks.validKeyletter || action.keyLetter.length === 0) {
         ks.keyletter = action.keyLetter;
     }
 
