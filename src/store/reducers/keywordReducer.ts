@@ -3,20 +3,24 @@ import { UpdateKeywordSectionAction } from "../../types/actions";
 import { encryptText, decryptText } from "../../crypto/keyword";
 
 export function keywordSectionReducer(ks: IKeywordSection, action: UpdateKeywordSectionAction): IKeywordSection {
-    // Check if the inputs are valid
-    ks = { ...ks,
-        validKeyword: isValidKeyword(action.keyword),
-        validKeyletter: isValidKeyletter(action.keyLetter)
-    }
-
     // If they are valid OR empty, allow them into the state
-    if (ks.validKeyword || action.keyword.length === 0) {
-        ks.keyword = action.keyword;
+    if (isValidKeyword(action.keyword) || action.keyword.length === 0) {
+        ks = { ...ks,
+            keyword: action.keyword
+        };
     }
-    if (ks.validKeyletter || action.keyLetter.length === 0) {
-        ks.keyletter = action.keyLetter;
+    if (isValidKeyletter(action.keyLetter) || action.keyLetter.length === 0) {
+        ks = { ...ks,
+            keyletter: action.keyLetter
+        };
     }
-
+    
+    // Validate!
+    ks = { ...ks,
+        validKeyword: isValidKeyword(ks.keyword),
+        validKeyletter: isValidKeyletter(ks.keyletter)
+    }
+    
     return ks;
 }
 
