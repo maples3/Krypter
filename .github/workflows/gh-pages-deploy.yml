@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  build:
+  deploy_to_gh_pages:
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
@@ -21,5 +21,13 @@ jobs:
       - name: NPM Install
         run: npm install
 
-      - name: NPM Deploy
-        run: npm run deploy
+      - name: NPM Build
+        run: npm run build
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@3.6.2
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: build
+          CLEAN: true
