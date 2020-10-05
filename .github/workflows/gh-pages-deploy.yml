@@ -1,0 +1,25 @@
+name: GitHub Pages deployment
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v2.1.0
+        with:
+          node-version: '12.x'
+      
+      - name: NPM Install
+        run: npm install
+
+      - name: NPM Deploy
+        run: npm run deploy
